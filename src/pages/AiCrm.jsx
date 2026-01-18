@@ -5,19 +5,87 @@ import { useState, useEffect } from 'react'
 import aiCallCenter1 from '../assets/aiCallCenter/IMG_0398.jpeg'
 import aiCallCenter2 from '../assets/aiCallCenter/IMG_0448.jpeg'
 import aiCallCenter3 from '../assets/aiCallCenter/IMG_0450.jpeg'
+import iphoneImage from '../assets/apple-iphone-17-pro-max-2025-medium.png'
 import crm1 from '../assets/CRM/IMG_0458.jpeg'
 import crm2 from '../assets/CRM/IMG_0460.jpeg'
 import crm3 from '../assets/CRM/IMG_0464.jpeg'
 import crm4 from '../assets/CRM/IMG_0466.jpeg'
 
 const chatDemo = [
-  { type: 'bot', text: 'Merhaba! HepsiClinic\'e hoş geldiniz. Size nasıl yardımcı olabilirim?' },
-  { type: 'user', text: 'Botox fiyatları hakkında bilgi alabilir miyim?' },
-  { type: 'bot', text: 'Tabii ki! Botox uygulamalarımız bölgeye göre 2.500₺\'den başlamaktadır. Tam yüz uygulaması için 4.500₺\'dir. Randevu almak ister misiniz?' },
-  { type: 'user', text: 'Evet, yarın öğleden sonra müsait miyim?' },
+  { type: 'bot', text: 'Merhaba! Kliniğimize hoş geldiniz. Size nasıl yardımcı olabilirim?' },
+  { type: 'user', text: 'Merhaba, randevu almak istiyorum.' },
+  { type: 'bot', text: 'Tabii ki! Hangi hizmetimiz için randevu almak istersiniz?' },
+  { type: 'user', text: 'Cilt bakımı için müsait günleriniz var mı?' },
   { type: 'bot', text: 'Yarın için müsait saatlerimiz: 14:00, 15:30 ve 17:00. Hangisi size uygun?' },
   { type: 'user', text: '14:00 olsun lütfen.' },
-  { type: 'bot', text: 'Harika! 14:00 için randevunuz oluşturuldu. Lütfen ad soyad ve telefon numaranızı paylaşır mısınız?' }
+  { type: 'bot', text: 'Mükemmel! Yarın saat 14:00 için randevunuz oluşturuldu. Google takviminize eklendi ve randevu hatırlatması için SMS göndereceğiz. Kliniğimizin konumunu paylaşayım mı?' }
+]
+
+const aiFeatures = [
+  {
+    id: 1,
+    title: '7/24 WhatsApp & Instagram Cevap Sistemi',
+    description: 'Mesajlarınız asla cevapsız kalmaz. AI asistanımız tüm sorulara anında yanıt verir.',
+    badge: 'Öncelik 1',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M8.625 9.75a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/>
+      </svg>
+    )
+  },
+  {
+    id: 2,
+    title: 'Google Ajanda Entegrasyonu',
+    description: 'Randevularınız otomatik olarak Google takviminize eklenir ve senkronize edilir.',
+    badge: 'Öncelik 2',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/>
+      </svg>
+    )
+  },
+  {
+    id: 3,
+    title: 'Canlı AI Call Center',
+    description: 'Gelen çağrıları karşılama, bilgi verme ve uygun departmana yönlendirme.',
+    badge: 'Öncelik 3',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
+      </svg>
+    )
+  },
+  {
+    id: 4,
+    title: 'SMS/WhatsApp Hatırlatma Sistemi',
+    description: 'Randevu hatırlatmaları ve önemli bildirimler otomatik olarak gönderilir.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"/>
+      </svg>
+    )
+  },
+  {
+    id: 5,
+    title: 'Klinik Konum Yönlendirme',
+    description: 'Hastalarınıza otomatik konum ve yol tarifi paylaşımı.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+        <path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+      </svg>
+    )
+  },
+  {
+    id: 6,
+    title: 'Canlı Destek',
+    description: 'İhtiyaç duyulduğunda canlı destek ekibine anında bağlantı.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/>
+      </svg>
+    )
+  }
 ]
 
 const crmModules = [
@@ -83,57 +151,10 @@ const crmModules = [
   }
 ]
 
-const packages = [
-  {
-    id: 1,
-    name: 'Başlangıç',
-    price: '2.990',
-    period: '/ay',
-    features: [
-      'AI Çağrı Karşılama',
-      'Temel CRM',
-      '500 Çağrı/ay',
-      'WhatsApp Entegrasyonu',
-      'Email Desteği'
-    ],
-    popular: false
-  },
-  {
-    id: 2,
-    name: 'Profesyonel',
-    price: '5.990',
-    period: '/ay',
-    features: [
-      'Tüm Başlangıç Özellikleri',
-      'Gelişmiş CRM Modülleri',
-      '2000 Çağrı/ay',
-      'SMS Hatırlatmaları',
-      'Before/After Modülü',
-      '7/24 Destek'
-    ],
-    popular: true
-  },
-  {
-    id: 3,
-    name: 'Kurumsal',
-    price: 'Özel',
-    period: 'Fiyat',
-    features: [
-      'Tüm Profesyonel Özellikleri',
-      'Sınırsız Çağrı',
-      'Özel Entegrasyonlar',
-      'Dedicated Account Manager',
-      'API Erişimi',
-      'SLA Garantisi'
-    ],
-    popular: false
-  }
-]
-
 function AiCrm() {
   const [visibleMessages, setVisibleMessages] = useState(1)
   const [isTyping, setIsTyping] = useState(false)
-  const [activeTab, setActiveTab] = useState('overview')
+  const [activeTab, setActiveTab] = useState('ai')
   const [demoStarted, setDemoStarted] = useState(false)
 
   const startDemo = () => {
@@ -170,36 +191,35 @@ function AiCrm() {
         <div className="container ai-hero-grid">
           <div className="ai-hero-content">
             <div className="badge-group">
-              <span className="badge badge-beta">Beta Sürüm</span>
-              <span className="badge badge-new">Çok Yakında</span>
+              <span className="badge badge-ai">AI Teknolojisi</span>
             </div>
             <h1>
-              Yapay Zeka Destekli<br />
-              <span className="gradient-text">Klinik Asistanı</span>
+              AI HİZMETLERİ<br />
+              <span className="gradient-text">Akıllı Klinik Asistanınız</span>
             </h1>
             <p className="ai-hero-desc">
-              AI Call Center ve CRM entegrasyonu ile kliniğinizin iletişimini 
-              7/24 otomatikleştirin. Çağrı karşılama, randevu yönetimi, 
-              otomatik bilgi iletimi ve satış desteği tek platformda.
+              WhatsApp Chat Bot ve AI Call Center entegrasyonu ile kliniğinizin iletişimini
+              7/24 otomatikleştirin. Hiçbir mesajınız cevapsız kalmasın, Google ajandanızda
+              randevularınızı hızlıca görebilirsiniz. CRM entegrasyonumuz çok yakında sizlerle olacak.
             </p>
             <div className="ai-hero-features">
               <div className="mini-feature">
                 <svg viewBox="0 0 24 24" fill="currentColor">
                   <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
                 </svg>
-                WhatsApp Otomasyonu
+                WhatsApp Chat Bot
               </div>
               <div className="mini-feature">
                 <svg viewBox="0 0 24 24" fill="currentColor">
                   <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
                 </svg>
-                CRM Entegrasyonu
+                AI Call Center
               </div>
               <div className="mini-feature">
                 <svg viewBox="0 0 24 24" fill="currentColor">
                   <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
                 </svg>
-                Randevu Akışı
+                Google Ajanda
               </div>
             </div>
             <div className="ai-hero-actions">
@@ -207,34 +227,238 @@ function AiCrm() {
                 <svg viewBox="0 0 24 24" fill="currentColor">
                   <path d="M8 5v14l11-7z"/>
                 </svg>
-                Asistanı Deneyin
+                Ücretsiz Demo
               </button>
-              <Link to="#pricing" className="btn-outline-light">Paketleri Gör</Link>
+              <Link to="/talep-formu" className="btn-outline-light">Teklif Al</Link>
             </div>
           </div>
           <div className="ai-hero-visual">
-            <div className="phone-3d">
-              <div className="phone-frame">
+            <div className="iphone-chat-wrapper-hero">
+              <img src={iphoneImage} alt="iPhone AI Assistant" className="iphone-frame-hero" />
+              <div className="iphone-chat-overlay-hero">
+                <div className="chat-header-hero">
+                  <div className="chat-avatar-hero">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                    </svg>
+                  </div>
+                  <div className="chat-info-hero">
+                    <span className="chat-name-hero">HepsiClinic AI</span>
+                    <span className="chat-status-hero">Çevrimiçi</span>
+                  </div>
+                </div>
+                <div className="chat-messages-hero">
+                  <div className="chat-msg-hero bot">Merhaba! 👋 Kliniğimize hoş geldiniz.</div>
+                  <div className="chat-msg-hero user">Merhaba, randevu almak istiyorum.</div>
+                  <div className="chat-msg-hero bot">Tabii! Hangi hizmet için randevu istersiniz?</div>
+                  <div className="chat-msg-hero user">Cilt bakımı için müsait günler?</div>
+                  <div className="chat-msg-hero bot">📅 Yarın 14:00, 15:30, 17:00 müsait!</div>
+                </div>
+                <div className="chat-input-hero">
+                  <span>Mesaj yazın...</span>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Tabs Section */}
+      <section className="ai-tabs-section">
+        <div className="container">
+          <div className="ai-tabs">
+            <button
+              className={`ai-tab ${activeTab === 'ai' ? 'active' : ''}`}
+              onClick={() => setActiveTab('ai')}
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/>
+              </svg>
+              AI Hizmetleri
+            </button>
+            <button
+              className={`ai-tab ${activeTab === 'crm' ? 'active' : ''}`}
+              onClick={() => setActiveTab('crm')}
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"/>
+              </svg>
+              CRM Sistemi
+              <span className="coming-soon-badge">Çok Yakında</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* AI Features Section */}
+      {activeTab === 'ai' && (
+        <section className="ai-features-section">
+          <div className="container">
+            <div className="section-header">
+              <span className="section-tag">Özellikler</span>
+              <h2>Yapay Zeka Destekli Klinik Yönetimi</h2>
+              <p>WhatsApp Chat Bot ve AI Call Center entegrasyonu ile kliniğinizin iletişimini ve hasta yönetimini tamamen otomatikleştirin. 7/24 aktif asistan ile hiçbir mesajınız cevapsız kalmasın. Google ajandanızda randevularınızı hızlıca görebilirsiniz. Yakında kendi CRM sistemimiz sizlerle olacak.</p>
+            </div>
+            <div className="ai-features-grid">
+              {aiFeatures.map((feature, index) => (
+                <div
+                  key={feature.id}
+                  className="ai-feature-card"
+                  style={{ '--delay': `${index * 0.1}s` }}
+                >
+                  {feature.badge && <span className="feature-badge">{feature.badge}</span>}
+                  <div className="ai-feature-icon">{feature.icon}</div>
+                  <h3>{feature.title}</h3>
+                  <p>{feature.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* CRM Section */}
+      {activeTab === 'crm' && (
+        <section className="crm-coming-soon" id="crm">
+          <div className="container">
+            <div className="coming-soon-content">
+              <div className="coming-soon-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <path d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <span className="badge-coming-soon">Çok Yakında</span>
+              <h2>CRM Entegrasyonu - Hasta Yönetiminde Yeni Dönem</h2>
+              <p>
+                Hasta kartları, randevu yönetimi, depo stok senkronizasyonu, before & after fotoğrafları,
+                hatırlatma sistemi ve ciro takibi ile kliniğinizi profesyonelce yönetebileceğiniz
+                kapsamlı CRM sistemimiz üzerinde aktif olarak çalışıyoruz.
+              </p>
+              <div className="crm-timeline">
+                <div className="timeline-item">
+                  <div className="timeline-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                    </svg>
+                  </div>
+                  <div className="timeline-content">
+                    <h4>AI Hizmetleri</h4>
+                    <p>WhatsApp Bot & Call Center - Aktif ✓</p>
+                  </div>
+                </div>
+                <div className="timeline-item active">
+                  <div className="timeline-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <path d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                  </div>
+                  <div className="timeline-content">
+                    <h4>CRM Entegrasyonu</h4>
+                    <p>Geliştirme Aşamasında - Çok Yakında ⏰</p>
+                  </div>
+                </div>
+              </div>
+              <div className="crm-preview-grid">
+                {crmModules.map((module, index) => (
+                  <div key={module.id} className="crm-preview-card" style={{ '--delay': `${index * 0.1}s` }}>
+                    <div className="crm-preview-icon">{module.icon}</div>
+                    <h4>{module.title}</h4>
+                    <p>{module.description}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="crm-importance-note">
+                <div className="importance-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4>⏰ CRM Lansmanı Yaklaşıyor!</h4>
+                  <p>
+                    CRM entegrasyonumuz aktif geliştirme aşamasındadır. Erken erişim fırsatlarından
+                    yararlanmak ve lansmanı kaçırmamak için bizimle iletişime geçin. İlk kullanıcılarımıza
+                    özel avantajlar sunacağız.
+                  </p>
+                </div>
+              </div>
+              <div className="crm-cta-buttons">
+                <Link to="/talep-formu" className="btn-primary-large">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"/>
+                  </svg>
+                  Lansman Bilgisi Al
+                </Link>
+                <a href="tel:+905376023088" className="btn-outline-dark">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                  </svg>
+                  Hemen Ara
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Live Demo Section */}
+      <section className="ai-demo-section">
+        <div className="container">
+          <div className="demo-grid">
+            <div className="demo-content">
+              <span className="section-tag">Canlı Demo</span>
+              <h2>AI Asistanınızı Deneyin</h2>
+              <p>
+                Asistanımızın nasıl çalıştığını görmek için demo'yu başlatın. Gerçek zamanlı
+                yanıtlar, randevu oluşturma ve bilgi paylaşımını deneyimleyin.
+              </p>
+              <div className="demo-features">
+                <div className="demo-feature">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                  </svg>
+                  <span>Anında yanıt (3-5 saniye)</span>
+                </div>
+                <div className="demo-feature">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                  </svg>
+                  <span>Doğal dil işleme</span>
+                </div>
+                <div className="demo-feature">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                  </svg>
+                  <span>Otomatik randevu oluşturma</span>
+                </div>
+              </div>
+            </div>
+            <div className="demo-phone">
+              <div className="phone-frame-demo">
                 <div className="phone-notch"></div>
-                <div className="phone-screen">
-                  <div className="chat-header">
-                    <div className="chat-avatar">
+                <div className="phone-screen-demo">
+                  <div className="chat-header-demo">
+                    <div className="chat-avatar-demo">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/>
                       </svg>
                     </div>
-                    <div className="chat-info">
-                      <span className="chat-name">HepsiClinic AI</span>
-                      <span className="chat-status">
-                        <span className="status-dot"></span>
+                    <div className="chat-info-demo">
+                      <span className="chat-name-demo">HepsiClinic AI</span>
+                      <span className="chat-status-demo">
+                        <span className="status-dot-demo"></span>
                         Çevrimiçi
                       </span>
                     </div>
                   </div>
-                  <div className="chat-messages">
+                  <div className="chat-messages-demo">
                     {!demoStarted ? (
-                      <div className="chat-start">
-                        <p>Demo'yu başlatmak için "Asistanı Deneyin" butonuna tıklayın</p>
+                      <div className="chat-start-demo">
+                        <p>Demo'yu başlatmak için butona tıklayın</p>
+                        <button onClick={startDemo} className="btn-start-demo">
+                          Başlat
+                        </button>
                       </div>
                     ) : (
                       <>
@@ -253,177 +477,24 @@ function AiCrm() {
                       </>
                     )}
                   </div>
-                  <div className="chat-input">
-                    <input type="text" placeholder="Mesaj yazın..." disabled />
-                    <button disabled>
-                      <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-                      </svg>
-                    </button>
-                  </div>
+                </div>
+              </div>
+              <div className="dashboard-preview-demo">
+                <h4>Canlı Dashboard</h4>
+                <div className="stat-row-demo">
+                  <span>Bugünkü Randevular</span>
+                  <strong>24</strong>
+                </div>
+                <div className="stat-row-demo">
+                  <span>Aktif Görüşmeler</span>
+                  <strong>8</strong>
+                </div>
+                <div className="stat-row-demo">
+                  <span>Yanıt Süresi</span>
+                  <strong>3-5 sn</strong>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Tabs */}
-      <section className="ai-features-section">
-        <div className="container">
-          <div className="section-header">
-            <span className="section-tag">Özellikler</span>
-            <h2>AI Call Center & CRM Özellikleri</h2>
-          </div>
-          <div className="feature-tabs">
-            <button 
-              className={`tab-btn ${activeTab === 'overview' ? 'active' : ''}`}
-              onClick={() => setActiveTab('overview')}
-            >
-              Genel Bakış
-            </button>
-            <button 
-              className={`tab-btn ${activeTab === 'callcenter' ? 'active' : ''}`}
-              onClick={() => setActiveTab('callcenter')}
-            >
-              AI Call Center
-            </button>
-            <button 
-              className={`tab-btn ${activeTab === 'crm' ? 'active' : ''}`}
-              onClick={() => setActiveTab('crm')}
-            >
-              CRM Modülleri
-            </button>
-            <button 
-              className={`tab-btn ${activeTab === 'dashboard' ? 'active' : ''}`}
-              onClick={() => setActiveTab('dashboard')}
-            >
-              Dashboard
-            </button>
-          </div>
-          <div className="tab-content">
-            {activeTab === 'overview' && (
-              <div className="tab-panel overview-panel">
-                <div className="overview-grid">
-                  <div className="overview-text">
-                    <h3>Klinik Yönetiminde Yeni Dönem</h3>
-                    <p>
-                      HepsiClinic AI, WhatsApp ve telefon üzerinden hasta sorularını 
-                      yanıtlar, randevu oluşturur ve CRM'inize anında işler. 7/24 aktif 
-                      sohbetler, otomatik takipler ve ölçülebilir müşteri deneyimi ile 
-                      kliniğinizin iletişimini tek panelde yönetin.
-                    </p>
-                    <ul className="overview-list">
-                      <li>
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                        </svg>
-                        Sesli konuşma → Yazılı metin dönüşümü
-                      </li>
-                      <li>
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                        </svg>
-                        Soru-cevap örnekleri (botox, cilt bakımı, cihaz bilgisi)
-                      </li>
-                      <li>
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                        </svg>
-                        Otomatik randevu önerileri
-                      </li>
-                      <li>
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                        </svg>
-                        Web formları entegrasyonu
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="overview-image">
-                    <img src={aiCallCenter1} alt="AI Call Center" />
-                  </div>
-                </div>
-              </div>
-            )}
-            {activeTab === 'callcenter' && (
-              <div className="tab-panel callcenter-panel">
-                <div className="callcenter-grid">
-                  <div className="callcenter-card">
-                    <div className="callcenter-icon">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                        <path d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
-                      </svg>
-                    </div>
-                    <h4>Gelen Çağrı Listesi</h4>
-                    <p>Tüm gelen çağrıları anlık takip edin</p>
-                  </div>
-                  <div className="callcenter-card">
-                    <div className="callcenter-icon">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                        <path d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/>
-                      </svg>
-                    </div>
-                    <h4>Arama Transkriptleri</h4>
-                    <p>Tüm konuşmalar yazıya dönüştürülür</p>
-                  </div>
-                  <div className="callcenter-card">
-                    <div className="callcenter-icon">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                        <path d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z"/>
-                      </svg>
-                    </div>
-                    <h4>Otomatik Randevu</h4>
-                    <p>AI müsaitliğe göre randevu önerir</p>
-                  </div>
-                  <div className="callcenter-card">
-                    <div className="callcenter-icon">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                        <path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/>
-                      </svg>
-                    </div>
-                    <h4>Akıllı Asistan</h4>
-                    <p>Botox, cilt bakımı, fiyat bilgisi</p>
-                  </div>
-                </div>
-                <div className="callcenter-image">
-                  <img src={aiCallCenter2} alt="AI Call Center Dashboard" />
-                </div>
-              </div>
-            )}
-            {activeTab === 'crm' && (
-              <div className="tab-panel crm-panel">
-                <div className="crm-modules-grid">
-                  {crmModules.map((module) => (
-                    <div key={module.id} className="crm-module-card">
-                      <div className="module-icon">{module.icon}</div>
-                      <h4>{module.title}</h4>
-                      <p>{module.description}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-            {activeTab === 'dashboard' && (
-              <div className="tab-panel dashboard-panel">
-                <div className="dashboard-preview-grid">
-                  <div className="dashboard-image-large">
-                    <img src={crm1} alt="Dashboard Preview" />
-                    <span className="image-label">Klinik Dashboard</span>
-                  </div>
-                  <div className="dashboard-images-small">
-                    <div className="dashboard-image-small">
-                      <img src={crm2} alt="Müşteri Kartı" />
-                      <span className="image-label">Müşteri Kartları</span>
-                    </div>
-                    <div className="dashboard-image-small">
-                      <img src={crm3} alt="Raporlama" />
-                      <span className="image-label">Raporlama</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
           </div>
         </div>
       </section>
@@ -489,54 +560,17 @@ function AiCrm() {
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section id="pricing" className="ai-pricing">
-        <div className="container">
-          <div className="section-header light">
-            <span className="section-tag">Paketler</span>
-            <h2>Size Uygun Paketi Seçin</h2>
-            <p>Her büyüklükteki klinik için esnek çözümler</p>
-          </div>
-          <div className="pricing-grid">
-            {packages.map((pkg) => (
-              <div key={pkg.id} className={`pricing-card ${pkg.popular ? 'popular' : ''}`}>
-                {pkg.popular && <span className="popular-badge">En Popüler</span>}
-                <h3>{pkg.name}</h3>
-                <div className="price">
-                  <span className="currency">₺</span>
-                  <span className="amount">{pkg.price}</span>
-                  <span className="period">{pkg.period}</span>
-                </div>
-                <ul className="pricing-features">
-                  {pkg.features.map((feature, index) => (
-                    <li key={index}>
-                      <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                      </svg>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <Link to="/iletisim" className={`btn-pricing ${pkg.popular ? 'btn-primary' : 'btn-outline-dark'}`}>
-                  {pkg.id === 3 ? 'Teklif Al' : 'Başla'}
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="ai-cta">
         <div className="container ai-cta-content">
           <h2>Demo Randevusu Alın</h2>
           <p>
-            Uzman ekibimizle ücretsiz bir demo görüşmesi yapın ve 
-            AI Call Center & CRM'in kliniğinize nasıl değer katabileceğini keşfedin.
+            Uzman ekibimizle ücretsiz bir demo görüşmesi yapın ve
+            AI hizmetlerinin kliniğinize nasıl değer katabileceğini keşfedin.
           </p>
           <div className="ai-cta-actions">
-            <Link to="/danismanlik" className="btn-white-large">Demo İste</Link>
-            <a href="tel:+905551234567" className="btn-outline-white">
+            <Link to="/talep-formu" className="btn-white-large">Ücretsiz Demo İste</Link>
+            <a href="tel:+905376023088" className="btn-outline-white">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
               </svg>
