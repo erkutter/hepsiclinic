@@ -28,15 +28,15 @@ const services = [
   },
   {
     id: 2,
-    title: 'Profesyonel Çekim Hizmetleri',
-    description: 'Klinik ortamında profesyonel fotoğraf ve video çekimleri. Before/After çekimleri, tanıtım videoları, ürün fotoğrafları ve sosyal medya içerikleri.',
+    title: 'İçerik Üretimi',
+    description: 'Video, animasyon, fotoğraf ve grafik içeriklerinin profesyonel üretimi. Before/After, Reels, Story ve Feed tasarımları.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"/>
         <path d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"/>
       </svg>
     ),
-    features: ['Video prodüksiyon', 'Fotoğraf çekimi', 'Before/After', 'Tanıtım videoları']
+    features: ['Video prodüksiyon', 'Fotoğraf çekimi', 'Grafik tasarım', 'Animasyon']
   },
   {
     id: 3,
@@ -51,58 +51,36 @@ const services = [
   },
   {
     id: 4,
-    title: 'Web Sitesi Tasarımı',
-    description: 'Modern, mobil uyumlu ve SEO dostu web siteleri. Randevu sistemi, hizmet tanıtımı, galeri, blog ve landing page tasarımı. Kullanıcı dostu arayüz ve hızlı performans.',
+    title: 'Web Sitesi Tasarım & Bakım',
+    description: 'Modern, mobil uyumlu ve SEO dostu web siteleri. Randevu sistemi, blog ve landing page tasarımı.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/>
       </svg>
     ),
-    features: ['Responsive tasarım', 'Randevu sistemi', 'Blog entegrasyonu', 'Bakım & güncelleme']
+    features: ['Responsive tasarım', 'SEO optimizasyonu', 'Randevu entegrasyonu', 'Bakım & güncelleme']
   },
   {
     id: 5,
-    title: 'SEO & Dijital PR',
-    description: 'Arama motoru optimizasyonu ve dijital PR çalışmaları. Organik trafik artışı ve marka bilinirliği.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-      </svg>
-    ),
-    features: ['SEO optimizasyonu', 'Anahtar kelime analizi', 'Link building', 'İçerik stratejisi']
-  },
-  {
-    id: 6,
-    title: 'İçerik Üretimi',
-    description: 'Sosyal medya için özgün içerik üretimi. Reels, Story, Feed tasarımları ve animasyonlar.',
+    title: 'Marka Danışmanlığı',
+    description: 'Kurumsal kimlik, logo tasarımı ve marka stratejisi. Rakip analizi ve konumlandırma çalışmaları.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"/>
       </svg>
     ),
-    features: ['Grafik tasarım', 'Animasyon', 'Reels & Story', 'Marka kimliği']
-  },
-  {
-    id: 7,
-    title: 'Marka Danışmanlığı',
-    description: 'Kurumsal kimlik, logo tasarımı ve marka stratejisi. Rakip analizi ve konumlandırma çalışmaları.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z"/>
-      </svg>
-    ),
     features: ['Logo tasarımı', 'Kurumsal kimlik', 'Marka stratejisi', 'Ton ve ses']
   },
   {
-    id: 8,
-    title: 'Influencer Marketing',
-    description: 'Influencer işbirlikleri ve sponsorlu içerik yönetimi. Doğru influencer seçimi ve kampanya takibi.',
+    id: 6,
+    title: 'PR & Basın Desteği',
+    description: 'Dijital ve yazılı basın için PR çalışmaları. Influencer marketing ve medya ilişkileri yönetimi.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/>
+        <path d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z"/>
       </svg>
     ),
-    features: ['Influencer seçimi', 'Kampanya yönetimi', 'İçerik onayı', 'Performans analizi']
+    features: ['Basın bülteni', 'Medya ilişkileri', 'Influencer marketing', 'Kriz yönetimi']
   }
 ]
 
@@ -210,7 +188,7 @@ function SocialMedia() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)
-    }, 10000)
+    }, 6000)
     return () => clearInterval(timer)
   }, [])
 
@@ -624,7 +602,7 @@ function SocialMedia() {
               <button onClick={() => setShowForm(true)} className="btn-white-large">
                 Ücretsiz Analiz İste
               </button>
-              <a href="tel:+905376023088" className="btn-outline-white">
+              <a href="tel:+905551234567" className="btn-outline-white">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
                 </svg>

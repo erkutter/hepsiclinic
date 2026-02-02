@@ -7,62 +7,49 @@ import danismanlik2 from '../assets/danismanlik/IMG_0400.jpeg'
 import aiCallCenter1 from '../assets/aiCallCenter/IMG_0398.jpeg'
 import aiCallCenter2 from '../assets/aiCallCenter/IMG_0448.jpeg'
 import crm1 from '../assets/CRM/IMG_0458.jpeg'
+import crm2 from '../assets/CRM/IMG_0464.jpeg'
 import socialMedia1 from '../assets/socialMedia/IMG_0474.jpeg'
-import socialMedia2 from '../assets/socialMedia/IMG_0476.jpeg'
-import socialMedia3 from '../assets/socialMedia/IMG_0480.jpeg'
-import socialMedia4 from '../assets/socialMedia/IMG_0482.jpeg'
-import iphoneImage from '../assets/apple-iphone-17-pro-max-2025-medium.png'
 
 const heroSlides = [
   {
     id: 1,
     title: 'Danışmanlık Hizmetleri',
     subtitle: 'Klinik Kurmak, Büyütmek ve Yönetmek İçin',
-    description: 'Kurulum, operasyon yönetimi ve pazarlama desteği.',
+    description: 'Klinik kurulum danışmanlığı, operasyon yönetimi, insan kaynakları ve pazarlama desteği ile kliniğinizi bir adım öne taşıyın.',
     image: danismanlik1,
-    link: '/talep-formu',
+    link: '/danismanlik',
     buttonText: 'Danışmanlık Al',
     badge: 'Öncelik 1'
   },
   {
     id: 2,
-    title: 'AI HİZMETLERİ',
+    title: 'AI Call Center',
     subtitle: 'Akıllı Klinik Asistanınız',
-    description: 'WhatsApp Bot ve AI Call Center. 7/24 otomatik iletişim.',
+    description: 'Çağrı karşılama, randevu yönetimi, otomatik bilgi iletimi ve satış destek hizmeti sunan AI asistan ile 7/24 hizmet verin.',
     image: aiCallCenter1,
-    link: '/ai-hizmetleri',
-    buttonText: 'Ücretsiz Demo',
-    badge: 'AI Teknolojisi'
+    link: '/ai-call-center-crm',
+    buttonText: 'Demo İste',
+    badge: 'Çok Yakında'
   },
   {
     id: 3,
-    title: 'Sosyal Medya Yönetimi',
-    subtitle: 'Dijital Varlığınızı Güçlendirin',
-    description: 'İçerik üretimi, Google ADS ve profesyonel çekim.',
-    image: socialMedia1,
-    link: '/sosyal-medya',
-    buttonText: 'Paketleri Gör',
-    badge: 'Dijital Pazarlama'
+    title: 'CRM Programı',
+    subtitle: 'Hasta Yönetiminde Yeni Dönem',
+    description: 'Hasta kartları, randevu yönetimi, stok takibi, hatırlatma sistemi ve ciro takibi ile kliniğinizi profesyonelce yönetin.',
+    image: crm1,
+    link: '/ai-call-center-crm',
+    buttonText: 'Detayları Gör',
+    badge: 'AI Entegre'
   },
   {
     id: 4,
-    title: 'Hepsi İK',
-    subtitle: 'İş Arayan ve İşverenlerin Buluşma Noktası',
-    description: 'Estetisyen, klinik koordinatörü, banko elemanı ve diğer sağlık profesyonellerinin kolayca buluştuğu KVKK uyumlu platform. İşveren paneli, CV havuzu ve güvenli işe alım.',
-    image: danismanlik2,
-    link: '/hepsi-ik',
-    buttonText: 'Platformu Keşfet',
-    badge: 'İnsan Kaynakları'
-  },
-  {
-    id: 5,
-    title: 'CRM Entegrasyonu',
-    subtitle: 'Hasta Yönetiminde Yeni Dönem',
-    description: 'Hasta kartları, randevu yönetimi, depo stok senkronizasyonu, before & after fotoğrafları, hatırlatma sistemi ve ciro takibi. Yakında sizlerle!',
-    image: crm1,
-    link: '/ai-hizmetleri#crm',
-    buttonText: 'Bilgi Al',
-    badge: 'Çok Yakında'
+    title: 'Sosyal Medya Yönetimi',
+    subtitle: 'Dijital Varlığınızı Güçlendirin',
+    description: 'İçerik üretimi, Google ADS, web sitesi tasarımı ve marka danışmanlığı ile çevrimiçi görünürlüğünüzü artırın.',
+    image: socialMedia1,
+    link: '/sosyal-medya',
+    buttonText: 'Paketleri Gör',
+    badge: 'Yeni'
   }
 ]
 
@@ -81,45 +68,32 @@ const services = [
   },
   {
     id: 2,
-    title: 'WhatsApp Chat Bot ve AI Call Center',
-    description: 'WhatsApp Chat Bot ve AI Call Center entegrasyonu',
+    title: 'AI Call Center & CRM',
+    description: 'Akıllı çağrı merkezi ve hasta yönetim sistemi',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"/>
       </svg>
     ),
-    link: '/ai-hizmetleri',
+    link: '/ai-call-center-crm',
     color: '#1a5f7a'
   },
   {
     id: 3,
-    title: 'Sosyal Medya',
-    description: 'Dijital pazarlama, profesyonel çekim ve web sitesi tasarımı',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"/>
-        <path d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"/>
-      </svg>
-    ),
-    link: '/sosyal-medya',
-    color: '#c43d7a'
-  },
-  {
-    id: 4,
-    title: 'Hepsi İK',
+    title: 'Hepsi Eleman',
     description: 'İş arayanlar ve işverenler için platform',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/>
       </svg>
     ),
-    link: '/hepsi-ik',
+    link: '/personel',
     color: '#6b4c9a'
   },
   {
-    id: 5,
-    title: '2. El Cihaz',
-    description: 'Uygun fiyatlı aradığınız cihazlar için al & sat yapabileceğiniz platform',
+    id: 4,
+    title: '2. El Cihaz & Kiralama',
+    description: 'Kaliteli cihazlar uygun fiyatlarla',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/>
@@ -129,31 +103,43 @@ const services = [
     color: '#c4692e'
   },
   {
-    id: 6,
-    title: 'CRM',
-    description: 'Çok yakında',
+    id: 5,
+    title: 'Sarf Malzemeler',
+    description: 'Toptan fiyatlarla klinik malzemeleri',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"/>
       </svg>
     ),
-    link: '/ai-hizmetleri#crm',
+    link: '/sarf-malzemeler',
     color: '#3d7a62'
+  },
+  {
+    id: 6,
+    title: 'Sosyal Medya',
+    description: 'Dijital pazarlama ve içerik üretimi',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"/>
+        <path d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"/>
+      </svg>
+    ),
+    link: '/sosyal-medya',
+    color: '#c43d7a'
   }
 ]
 
 const stats = [
-  { value: '50+', label: 'Klinik Partneri' },
-  { value: '10+', label: 'Uzman Danışman' },
-  { value: '100+', label: 'Yerleştirilen Personel' },
-  { value: '95%', label: 'Müşteri Memnuniyeti' }
+  { value: '500+', label: 'Klinik Partneri' },
+  { value: '50+', label: 'Uzman Danışman' },
+  { value: '1000+', label: 'Yerleştirilen Personel' },
+  { value: '98%', label: 'Müşteri Memnuniyeti' }
 ]
 
 function Home() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
 
-  // Hero slider effect
   useEffect(() => {
     const timer = setInterval(() => {
       setIsAnimating(true)
@@ -161,40 +147,9 @@ function Home() {
         setCurrentSlide((prev) => (prev + 1) % heroSlides.length)
         setIsAnimating(false)
       }, 500)
-    }, 12000) // Longer duration for slides
+    }, 6000)
 
     return () => clearInterval(timer)
-  }, [])
-
-  // Scroll animation effect - Basic & Reliable
-  useEffect(() => {
-    const animatedElements = document.querySelectorAll('.scroll-animate')
-    
-    // Fallback: If no IntersectionObserver support, show all elements
-    if (!('IntersectionObserver' in window)) {
-      animatedElements.forEach(el => el.classList.add('animate-in'))
-      return
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-in')
-          }
-        })
-      },
-      {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-      }
-    )
-
-    animatedElements.forEach((element) => {
-      observer.observe(element)
-    })
-
-    return () => observer.disconnect()
   }, [])
 
   const goToSlide = (index) => {
@@ -213,7 +168,7 @@ function Home() {
     <>
       {/* Hero Slider Section */}
       <section className="hero-slider">
-        <div
+        <div 
           className={`hero-slide ${isAnimating ? 'fade-out' : 'fade-in'}`}
           style={{ backgroundImage: `url(${slide.image})` }}
         >
@@ -226,12 +181,12 @@ function Home() {
               <p className="hero-description">{slide.description}</p>
               <div className="hero-actions">
                 <Link to={slide.link} className="btn-primary">{slide.buttonText}</Link>
-                <a href="tel:+905376023088" className="btn-outline">İletişime Geç</a>
+                <Link to="/iletisim" className="btn-outline">İletişime Geç</Link>
               </div>
             </div>
           </div>
         </div>
-
+        
         <div className="slider-controls">
           <div className="slider-dots">
             {heroSlides.map((_, index) => (
@@ -244,7 +199,7 @@ function Home() {
             ))}
           </div>
           <div className="slider-progress">
-            <div
+            <div 
               className="slider-progress-bar"
               style={{ '--progress': `${((currentSlide + 1) / heroSlides.length) * 100}%` }}
             />
@@ -255,17 +210,17 @@ function Home() {
       {/* Services Grid */}
       <section className="services-section">
         <div className="container">
-          <div className="section-header scroll-animate fade-up">
+          <div className="section-header">
             <span className="section-tag">Hizmetlerimiz</span>
-            <h2>Tüm Klinik Çözümleri Tek Platformda</h2>
-            <p>Danışmanlıktan AI hizmetlerine, dijital pazarlamadan personel ihtiyaçlarına kadar her şey tek platformda</p>
+            <h2>Tüm Klinik İhtiyaçlarınız İçin</h2>
+            <p>Danışmanlıktan teknolojiye, personelden malzemeye kadar her şey tek platformda</p>
           </div>
           <div className="services-grid">
             {services.map((service, index) => (
-              <Link
-                to={service.link}
-                key={service.id}
-                className={`service-card scroll-animate fade-up delay-${Math.min(index + 1, 5)}00`}
+              <Link 
+                to={service.link} 
+                key={service.id} 
+                className="service-card"
                 style={{ '--delay': `${index * 0.1}s`, '--accent': service.color }}
               >
                 <div className="service-icon">{service.icon}</div>
@@ -281,26 +236,18 @@ function Home() {
       {/* AI & CRM Feature Section */}
       <section className="feature-section ai-feature">
         <div className="container feature-grid">
-          <div className="feature-content scroll-animate fade-left">
-            <span className="feature-tag">AI Hizmetleri</span>
+          <div className="feature-content">
+            <span className="feature-tag">AI Teknolojisi</span>
             <h2>Yapay Zeka Destekli Klinik Yönetimi</h2>
             <p>
-              WhatsApp Chat Bot ve AI Call Center entegrasyonu ile kliniğinizin iletişimini ve hasta yönetimini
-              tamamen otomatikleştirin. 7/24 aktif asistan ile hiçbir mesajınız cevapsız kalmasın.
-              Google ajandanızda randevularınızı hızlıca görebilirsiniz. Yakında kendi CRM sistemimiz sizlerle olacak.
+              AI Call Center ve CRM entegrasyonu ile kliniğinizin iletişimini ve hasta yönetimini 
+              tamamen otomatikleştirin. 7/24 aktif asistan, WhatsApp entegrasyonu ve akıllı 
+              randevu sistemi ile verimliliğinizi artırın.
             </p>
             <ul className="feature-list">
               <li>
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                7/24 WhatsApp & Instagram mesajlarına cevap sistemi
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                Google ajanda entegrasyonu
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                Otomatik çağrı karşılama, bilgi verme ve yönlendirme
+                Otomatik çağrı karşılama ve yönlendirme
               </li>
               <li>
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
@@ -312,43 +259,33 @@ function Home() {
               </li>
               <li>
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                Klinik konum yönlendirme
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                Canlı destek
+                Before & After fotoğraf yönetimi
               </li>
             </ul>
             <div className="feature-actions">
-              <Link to="/ai-hizmetleri" className="btn-primary">Demo İste</Link>
-              <Link to="/ai-hizmetleri" className="btn-text">Detaylı Bilgi →</Link>
+              <Link to="/ai-call-center-crm" className="btn-primary">Demo İste</Link>
+              <Link to="/ai-call-center-crm" className="btn-text">Detaylı Bilgi →</Link>
             </div>
           </div>
-          <div className="feature-visual scroll-animate fade-right">
-            <div className="iphone-chat-wrapper">
-              <img src={iphoneImage} alt="iPhone AI Assistant" className="iphone-frame" />
-              <div className="iphone-chat-overlay">
-                <div className="chat-header-mini">
-                  <div className="chat-avatar-mini">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
-                    </svg>
-                  </div>
-                  <div className="chat-info-mini">
-                    <span className="chat-name-mini">HepsiClinic AI</span>
-                    <span className="chat-status-mini">Çevrimiçi</span>
-                  </div>
+          <div className="feature-visual">
+            <div className="phone-mockup">
+              <div className="phone-screen">
+                <div className="chat-message bot">
+                  <span>Merhaba! HepsiClinic'e hoş geldiniz. Size nasıl yardımcı olabilirim?</span>
                 </div>
-                <div className="chat-messages-mini">
-                  <div className="chat-msg bot">Merhaba! 👋 Size nasıl yardımcı olabilirim?</div>
-                  <div className="chat-msg user">Botox fiyatları hakkında bilgi alabilir miyim?</div>
-                  <div className="chat-msg bot">Tabii! 3.500₺'den başlıyor. Randevu ister misiniz?</div>
-                  <div className="chat-msg user">Evet, bu hafta müsait misiniz?</div>
-                  <div className="chat-msg bot">📅 Salı 14:00, Çarşamba 10:00, Cuma 11:00 müsait.</div>
+                <div className="chat-message user">
+                  <span>Botox fiyatları hakkında bilgi alabilir miyim?</span>
                 </div>
-                <div className="chat-input-mini">
-                  <span>Mesaj yazın...</span>
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                <div className="chat-message bot">
+                  <span>Tabii ki! Botox uygulamalarımız 2.500₺'den başlamaktadır. Randevu almak ister misiniz?</span>
+                </div>
+                <div className="chat-message user">
+                  <span>Evet, yarın öğleden sonra müsait miyim?</span>
+                </div>
+                <div className="chat-message bot typing">
+                  <span className="typing-indicator">
+                    <span></span><span></span><span></span>
+                  </span>
                 </div>
               </div>
             </div>
@@ -364,7 +301,7 @@ function Home() {
               </div>
               <div className="stat-row">
                 <span>Yanıt Süresi</span>
-                <strong>3-5 sn</strong>
+                <strong>~12 sn</strong>
               </div>
             </div>
           </div>
@@ -376,7 +313,7 @@ function Home() {
         <div className="container">
           <div className="stats-grid">
             {stats.map((stat, index) => (
-              <div key={index} className={`stat-item scroll-animate fade-up delay-${Math.min(index + 1, 5)}00`} style={{ '--delay': `${index * 0.15}s` }}>
+              <div key={index} className="stat-item" style={{ '--delay': `${index * 0.15}s` }}>
                 <span className="stat-value">{stat.value}</span>
                 <span className="stat-label">{stat.label}</span>
               </div>
@@ -388,15 +325,15 @@ function Home() {
       {/* HR Section */}
       <section className="hr-section">
         <div className="container hr-grid">
-          <div className="hr-image scroll-animate fade-left">
+          <div className="hr-image">
             <img src={danismanlik2} alt="Sağlık profesyonelleri" />
           </div>
-          <div className="hr-content scroll-animate fade-right">
-            <span className="section-tag">Hepsi İK</span>
-            <h2>İş Arayan ve İşverenlerin Ortak Buluşma Noktası</h2>
+          <div className="hr-content">
+            <span className="section-tag">Hepsi Eleman</span>
+            <h2>Kliniğiniz İçin Doğru Personeli Bulun</h2>
             <p>
-              Estetisyen, klinik koordinatörü, banko elemanı ve diğer sağlık profesyonellerinin
-              kolayca buluştuğu bir platform. KVKK uyumlu sistemimizle güvenle işe alım yapın veya
+              Estetisyen, klinik koordinatörü, doktor ve diğer sağlık profesyonellerini 
+              kolayca bulun. KVKK uyumlu sistemimizle güvenle işe alım yapın veya 
               iş arayın.
             </p>
             <div className="hr-features">
@@ -424,119 +361,88 @@ function Home() {
               </div>
             </div>
             <div className="hr-actions">
-              <Link to="/hepsi-ik" className="btn-primary-dark">Eleman Arıyorum</Link>
-              <Link to="/hepsi-ik" className="btn-outline-dark">İş Arıyorum</Link>
+              <Link to="/personel" className="btn-primary-dark">Eleman Arıyorum</Link>
+              <Link to="/personel" className="btn-outline-dark">İş Arıyorum</Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Digital Marketing & Social Media Section */}
-      <section className="digital-marketing-section">
+      {/* Devices & Equipment Section */}
+      <section className="equipment-section">
         <div className="container">
-          <div className="section-header scroll-animate fade-up">
-            <span className="section-tag">Dijital Pazarlama</span>
+          <div className="section-header light">
+            <span className="section-tag">Cihaz & Ekipman</span>
+            <h2>2. El Cihazlar, Sıfır Cihazlar & Kiralama</h2>
+            <p>Klinik ihtiyaçlarınız için uygun fiyatlı ve kaliteli seçenekler</p>
+          </div>
+          <div className="equipment-cards">
+            <Link to="/ikinci-el-cihazlar" className="equipment-card">
+              <div className="equipment-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <path d="M4.5 12a7.5 7.5 0 0015 0m-15 0a7.5 7.5 0 1115 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077l1.41-.513m14.095-5.13l1.41-.513M5.106 17.785l1.15-.964m11.49-9.642l1.149-.964M7.501 19.795l.75-1.3m7.5-12.99l.75-1.3m-6.063 16.658l.26-1.477m2.605-14.772l.26-1.477m0 17.726l-.26-1.477M10.698 4.614l-.26-1.477M16.5 19.794l-.75-1.299M7.5 4.205L6.75 2.906m9.944 18.08l-1.15-.964M5.463 5.106l-1.149-.964m14.946 14.164l-1.41-.514M5.106 6.215l-1.41-.513"/>
+                </svg>
+              </div>
+              <h3>2. El Cihazlar</h3>
+              <p>Garantili, test edilmiş ikinci el medikal cihazlar</p>
+              <span className="card-link">Cihazları Gör →</span>
+            </Link>
+            <Link to="/ikinci-el-cihazlar" className="equipment-card featured">
+              <div className="equipment-badge">Popüler</div>
+              <div className="equipment-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <path d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <h3>Kiralama</h3>
+              <p>Esnek ödeme seçenekleriyle cihaz kiralama</p>
+              <span className="card-link">Kiralama Seçenekleri →</span>
+            </Link>
+            <Link to="/sarf-malzemeler" className="equipment-card">
+              <div className="equipment-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <path d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m8.25 3v6.75m0 0l-3-3m3 3l3-3M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"/>
+                </svg>
+              </div>
+              <h3>Sarf Malzeme</h3>
+              <p>Toptan fiyatlarla tek kullanımlık malzemeler</p>
+              <span className="card-link">Ürünleri Gör →</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Social Media CTA */}
+      <section className="social-cta">
+        <div className="container social-cta-content">
+          <div className="social-cta-text">
             <h2>Dijital Varlığınızı Güçlendirin</h2>
-            <p>Sosyal medya yönetiminden profesyonel çekime, SEO'dan dijital PR'a kadar tüm dijital pazarlama hizmetlerimiz</p>
+            <p>
+              Sosyal medya yönetimi, içerik üretimi, Google ADS ve web sitesi tasarımı 
+              ile kliniğinizin çevrimiçi görünürlüğünü artırın.
+            </p>
+            <Link to="/sosyal-medya" className="btn-white">Sosyal Medya Paketleri</Link>
           </div>
-
-          <div className="digital-services-grid">
-            <div className="digital-service-card scroll-animate fade-up delay-100">
-              <div className="digital-service-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/>
-                </svg>
-              </div>
-              <h3>Sosyal Medya Yönetimi</h3>
-              <p>Instagram, Facebook, TikTok ve LinkedIn hesaplarınızın profesyonel yönetimi. İçerik planlaması, paylaşım ve etkileşim yönetimi.</p>
-            </div>
-
-            <div className="digital-service-card scroll-animate fade-up delay-200">
-              <div className="digital-service-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"/>
-                  <path d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"/>
-                </svg>
-              </div>
-              <h3>Profesyonel Çekim Hizmetleri</h3>
-              <p>Klinik ortamında profesyonel fotoğraf ve video çekimleri. Before/After, tanıtım videoları, ürün fotoğrafları ve sosyal medya içerikleri.</p>
-            </div>
-
-            <div className="digital-service-card scroll-animate fade-up delay-300">
-              <div className="digital-service-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"/>
-                </svg>
-              </div>
-              <h3>Google ADS Yönetimi</h3>
-              <p>Hedefli reklam kampanyaları ile potansiyel hastalarınıza ulaşın. Arama, Display ve YouTube reklamları ile ROI optimizasyonu.</p>
-            </div>
-
-            <div className="digital-service-card scroll-animate fade-up delay-400">
-              <div className="digital-service-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/>
-                </svg>
-              </div>
-              <h3>Web Sitesi Tasarımı</h3>
-              <p>Modern, mobil uyumlu ve SEO dostu web siteleri. Randevu sistemi, hizmet tanıtımı, galeri ve blog entegrasyonu.</p>
-            </div>
-
-            <div className="digital-service-card scroll-animate fade-up delay-500">
-              <div className="digital-service-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                </svg>
-              </div>
-              <h3>SEO & Dijital PR</h3>
-              <p>Arama motoru optimizasyonu ve dijital PR çalışmaları. Organik trafik artışı, anahtar kelime analizi ve link building.</p>
-            </div>
-
-            <div className="digital-service-card scroll-animate fade-up delay-600">
-              <div className="digital-service-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"/>
-                </svg>
-              </div>
-              <h3>İçerik Üretimi</h3>
-              <p>Sosyal medya için özgün içerik üretimi. Reels, Story, Feed tasarımları, animasyonlar ve grafik tasarım hizmetleri.</p>
-            </div>
+          <div className="social-cta-visual">
+            <img src={aiCallCenter2} alt="Sosyal medya yönetimi" />
           </div>
+        </div>
+      </section>
 
-          <div className="digital-gallery scroll-animate fade-up">
-            <div className="gallery-grid">
-              <div className="gallery-item">
-                <img src={socialMedia1} alt="Sosyal Medya Yönetimi" />
-                <div className="gallery-overlay">
-                  <h4>Sosyal Medya İçerikleri</h4>
-                </div>
-              </div>
-              <div className="gallery-item">
-                <img src={socialMedia2} alt="Profesyonel Çekim" />
-                <div className="gallery-overlay">
-                  <h4>Profesyonel Çekim</h4>
-                </div>
-              </div>
-              <div className="gallery-item">
-                <img src={socialMedia3} alt="Grafik Tasarım" />
-                <div className="gallery-overlay">
-                  <h4>Grafik Tasarım</h4>
-                </div>
-              </div>
-              <div className="gallery-item">
-                <img src={socialMedia4} alt="Video Prodüksiyon" />
-                <div className="gallery-overlay">
-                  <h4>Video Prodüksiyon</h4>
-                </div>
-              </div>
-            </div>
+      {/* Insurance Banner */}
+      <section className="insurance-section">
+        <div className="container insurance-content">
+          <div className="insurance-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <path d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
+            </svg>
           </div>
-
-          <div className="digital-cta scroll-animate fade-up">
-            <h3>Kliniğinizin Dijital Varlığını Güçlendirin</h3>
-            <p>Sosyal medya paketlerimizi inceleyin ve size en uygun çözümü bulun</p>
-            <Link to="/sosyal-medya" className="btn-primary-large">Paketleri İncele</Link>
-          </div>
+          <h2>Cihaz & Klinik Sigortası</h2>
+          <p>
+            HepsiClinic güvencesiyle cihazlarınızı ve kliniğinizi koruma altına alın. 
+            Özel sigorta paketlerimizle içiniz rahat olsun.
+          </p>
+          <Link to="/ikinci-el-cihazlar" className="btn-outline-light">Sigorta Teklifi Al</Link>
         </div>
       </section>
 
@@ -545,12 +451,12 @@ function Home() {
         <div className="container main-cta-content">
           <h2>Kliniğinizi Bir Adım Öne Taşıyın</h2>
           <p>
-            Ücretsiz danışmanlık için hemen iletişime geçin. Uzman ekibimiz size en uygun
+            Ücretsiz danışmanlık için hemen iletişime geçin. Uzman ekibimiz size en uygun 
             çözümleri sunmak için hazır.
           </p>
           <div className="main-cta-actions">
-            <Link to="/talep-formu" className="btn-primary-large">Ücretsiz Danışmanlık</Link>
-            <a href="tel:+905376023088" className="btn-outline-large">
+            <Link to="/danismanlik" className="btn-primary-large">Ücretsiz Danışmanlık</Link>
+            <a href="tel:+905551234567" className="btn-outline-large">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
               </svg>
