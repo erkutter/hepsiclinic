@@ -12,36 +12,6 @@ const jobCategories = [
   { id: 6, name: 'Güzellik Uzmanı', count: 16 }
 ]
 
-const featuredJobs = [
-  {
-    id: 1,
-    title: 'Kıdemli Estetisyen',
-    company: 'Premium Estetik Merkezi',
-    location: 'İstanbul - Kadıköy',
-    salary: '25.000₺ - 35.000₺',
-    type: 'Tam Zamanlı',
-    posted: '2 gün önce'
-  },
-  {
-    id: 2,
-    title: 'Klinik Koordinatörü',
-    company: 'Beauty Plus Klinik',
-    location: 'İstanbul - Şişli',
-    salary: '30.000₺ - 40.000₺',
-    type: 'Tam Zamanlı',
-    posted: '3 gün önce'
-  },
-  {
-    id: 3,
-    title: 'Banko Elemanı',
-    company: 'Sağlık & Güzellik',
-    location: 'Ankara - Çankaya',
-    salary: '20.000₺ - 28.000₺',
-    type: 'Tam Zamanlı',
-    posted: '1 hafta önce'
-  }
-]
-
 function HepsiIK() {
   const [activePanel, setActivePanel] = useState('jobseeker')
   const [formData, setFormData] = useState({
@@ -51,8 +21,7 @@ function HepsiIK() {
     profession: '',
     experience: '',
     city: '',
-    cv: null,
-    privacy: 'public'
+    cv: null
   })
   const [employerData, setEmployerData] = useState({
     companyName: '',
@@ -78,14 +47,14 @@ function HepsiIK() {
       {/* Hero Section */}
       <section className="personnel-hero-new">
         <div className="personnel-hero-bg">
-          <img src={danismanlik2} alt="Hepsi İK" />
+          <img src={danismanlik2} alt="İK" />
           <div className="hero-gradient"></div>
         </div>
         <div className="container personnel-hero-content">
           <div className="hero-badge-wrapper">
-            <span className="hero-badge">Hepsi İK</span>
+            <span className="hero-badge">İnsan Kaynakları</span>
           </div>
-          <h1>İş arayan ve iş verenlerin<br /><span>ortak buluşma noktası</span></h1>
+          <h1>İnsan Kaynakları<br /><span>İş Arayan ve İşverenlerin Buluşma Noktası</span></h1>
           <p>
             Estetisyen, klinik koordinatörü, banko elemanı ve diğer sağlık profesyonellerinin 
             kolayca buluştuğu bir platform. KVKK uyumlu sistemimizle güvenle işe alım yapın veya iş arayın.
@@ -133,33 +102,6 @@ function HepsiIK() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="personnel-stats">
-        <div className="container">
-          <div className="stats-bar">
-            <div className="stat-item-mini">
-              <strong>500+</strong>
-              <span>Aktif İlan</span>
-            </div>
-            <div className="stat-divider"></div>
-            <div className="stat-item-mini">
-              <strong>1000+</strong>
-              <span>CV Havuzu</span>
-            </div>
-            <div className="stat-divider"></div>
-            <div className="stat-item-mini">
-              <strong>200+</strong>
-              <span>İşveren</span>
-            </div>
-            <div className="stat-divider"></div>
-            <div className="stat-item-mini">
-              <strong>850+</strong>
-              <span>Yerleştirme</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Main Content */}
       <section className="personnel-main">
         <div className="container">
@@ -201,7 +143,7 @@ function HepsiIK() {
 
               <div className="info-card">
                 <h4>KVKK Uyumlu Sistem</h4>
-                <p>Tüm verileriniz güvenle saklanır. Taraflar birbirini görmez, sadece HepsiClinic yönetir.</p>
+                <p>Tüm verileriniz güvenle saklanır. Taraflar birbirini görmez, platform tarafından yönetilir.</p>
               </div>
             </aside>
 
@@ -313,31 +255,6 @@ function HepsiIK() {
                           </div>
                         </div>
                       </div>
-                      <div className="form-group">
-                        <label>Gizlilik Ayarı</label>
-                        <div className="radio-group">
-                          <label className="radio-label">
-                            <input
-                              type="radio"
-                              name="privacy"
-                              value="public"
-                              checked={formData.privacy === 'public'}
-                              onChange={(e) => setFormData({...formData, privacy: e.target.value})}
-                            />
-                            <span>İşverenlere Açık</span>
-                          </label>
-                          <label className="radio-label">
-                            <input
-                              type="radio"
-                              name="privacy"
-                              value="private"
-                              checked={formData.privacy === 'private'}
-                              onChange={(e) => setFormData({...formData, privacy: e.target.value})}
-                            />
-                            <span>Sadece Başvurduklarıma</span>
-                          </label>
-                        </div>
-                      </div>
                       <div className="form-consent">
                         <label>
                           <input type="checkbox" required />
@@ -352,41 +269,6 @@ function HepsiIK() {
                       </button>
                     </form>
                   )}
-
-                  {/* Featured Jobs */}
-                  <div className="featured-jobs">
-                    <h3>Öne Çıkan İlanlar</h3>
-                    <div className="jobs-list">
-                      {featuredJobs.map((job) => (
-                        <div key={job.id} className="job-card">
-                          <div className="job-header">
-                            <h4>{job.title}</h4>
-                            <span className="job-type">{job.type}</span>
-                          </div>
-                          <p className="job-company">{job.company}</p>
-                          <div className="job-details">
-                            <span>
-                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                <path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
-                                <path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
-                              </svg>
-                              {job.location}
-                            </span>
-                            <span>
-                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                <path d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                              </svg>
-                              {job.salary}
-                            </span>
-                          </div>
-                          <div className="job-footer">
-                            <span className="job-posted">{job.posted}</span>
-                            <button className="btn-apply">Başvur</button>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
                 </div>
               ) : (
                 <div className="employer-panel">
@@ -553,12 +435,20 @@ function HepsiIK() {
         <div className="container personnel-cta-content">
           <h2>Sorularınız mı Var?</h2>
           <p>İnsan kaynakları ekibimizle iletişime geçin</p>
-          <a href="tel:+905376023088" className="btn-white">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
-            </svg>
-            Hemen Arayın
-          </a>
+          <div className="personnel-cta-actions">
+            <a href="tel:+905376023088" className="btn-white">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+              </svg>
+              Hemen Arayın
+            </a>
+            <Link to="/talep-formu" className="btn-outline-white">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+              Form Doldurun
+            </Link>
+          </div>
         </div>
       </section>
     </>

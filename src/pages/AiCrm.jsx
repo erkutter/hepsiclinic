@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 import aiCallCenter1 from '../assets/aiCallCenter/IMG_0398.jpeg'
 import aiCallCenter2 from '../assets/aiCallCenter/IMG_0448.jpeg'
 import aiCallCenter3 from '../assets/aiCallCenter/IMG_0450.jpeg'
-import iphoneImage from '../assets/apple-iphone-17-pro-max-2025-medium.png'
+import whatsappImage from '../assets/apple-whatsapp.png'
 import crm1 from '../assets/CRM/IMG_0458.jpeg'
 import crm2 from '../assets/CRM/IMG_0460.jpeg'
 import crm3 from '../assets/CRM/IMG_0464.jpeg'
@@ -26,7 +26,6 @@ const aiFeatures = [
     id: 1,
     title: '7/24 WhatsApp & Instagram Cevap Sistemi',
     description: 'Mesajlarınız asla cevapsız kalmaz. AI asistanımız tüm sorulara anında yanıt verir.',
-    badge: 'Öncelik 1',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M8.625 9.75a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/>
@@ -35,23 +34,21 @@ const aiFeatures = [
   },
   {
     id: 2,
-    title: 'Google Ajanda Entegrasyonu',
-    description: 'Randevularınız otomatik olarak Google takviminize eklenir ve senkronize edilir.',
-    badge: 'Öncelik 2',
+    title: 'Canlı AI Call Center',
+    description: 'Gelen çağrıları karşılama, bilgi verme ve uygun departmana yönlendirme.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/>
+        <path d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
       </svg>
     )
   },
   {
     id: 3,
-    title: 'Canlı AI Call Center',
-    description: 'Gelen çağrıları karşılama, bilgi verme ve uygun departmana yönlendirme.',
-    badge: 'Öncelik 3',
+    title: 'Google Ajanda Entegrasyonu',
+    description: 'Randevularınız otomatik olarak Google takviminize eklenir ve senkronize edilir.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
+        <path d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/>
       </svg>
     )
   },
@@ -229,36 +226,12 @@ function AiCrm() {
                 </svg>
                 Ücretsiz Demo
               </button>
-              <Link to="/talep-formu" className="btn-outline-light">Teklif Al</Link>
+              <Link to="/talep-formu" className="btn-outline-dark">Teklif Al</Link>
             </div>
           </div>
           <div className="ai-hero-visual">
-            <div className="iphone-chat-wrapper-hero">
-              <img src={iphoneImage} alt="iPhone AI Assistant" className="iphone-frame-hero" />
-              <div className="iphone-chat-overlay-hero">
-                <div className="chat-header-hero">
-                  <div className="chat-avatar-hero">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
-                    </svg>
-                  </div>
-                  <div className="chat-info-hero">
-                    <span className="chat-name-hero">HepsiClinic AI</span>
-                    <span className="chat-status-hero">Çevrimiçi</span>
-                  </div>
-                </div>
-                <div className="chat-messages-hero">
-                  <div className="chat-msg-hero bot">Merhaba! 👋 Kliniğimize hoş geldiniz.</div>
-                  <div className="chat-msg-hero user">Merhaba, randevu almak istiyorum.</div>
-                  <div className="chat-msg-hero bot">Tabii! Hangi hizmet için randevu istersiniz?</div>
-                  <div className="chat-msg-hero user">Cilt bakımı için müsait günler?</div>
-                  <div className="chat-msg-hero bot">📅 Yarın 14:00, 15:30, 17:00 müsait!</div>
-                </div>
-                <div className="chat-input-hero">
-                  <span>Mesaj yazın...</span>
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-                </div>
-              </div>
+            <div className="whatsapp-image-wrapper">
+              <img src={whatsappImage} alt="WhatsApp AI Assistant Demo" className="whatsapp-demo-image" />
             </div>
           </div>
         </div>
@@ -307,7 +280,6 @@ function AiCrm() {
                   className="ai-feature-card"
                   style={{ '--delay': `${index * 0.1}s` }}
                 >
-                  {feature.badge && <span className="feature-badge">{feature.badge}</span>}
                   <div className="ai-feature-icon">{feature.icon}</div>
                   <h3>{feature.title}</h3>
                   <p>{feature.description}</p>
@@ -506,55 +478,196 @@ function AiCrm() {
             <div className="technical-content">
               <span className="section-tag">Teknik Entegrasyonlar</span>
               <h2>Güçlü Altyapı</h2>
-              <div className="technical-items">
-                <div className="technical-item">
-                  <div className="tech-icon">
+              <p className="technical-intro">
+                Enterprise seviyesinde güvenlik ve performans standartlarıyla tasarlanmış,
+                ölçeklenebilir ve güvenilir teknoloji altyapısı.
+              </p>
+              <div className="technical-items-enhanced">
+                <div className="technical-item-enhanced">
+                  <div className="tech-icon-enhanced">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                       <path d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/>
                     </svg>
                   </div>
-                  <div>
+                  <div className="tech-content">
                     <h4>API Endpoint Hazırlığı</h4>
-                    <p>RESTful API ile kolay entegrasyon</p>
+                    <p>RESTful API mimarisi ile mevcut sistemlerinize sorunsuz entegrasyon. JSON formatında veri alışverişi, webhook desteği ve kapsamlı API dokümantasyonu.</p>
+                    <ul className="tech-features">
+                      <li>REST & GraphQL desteği</li>
+                      <li>OAuth 2.0 kimlik doğrulama</li>
+                      <li>Rate limiting & caching</li>
+                    </ul>
                   </div>
                 </div>
-                <div className="technical-item">
-                  <div className="tech-icon">
+                <div className="technical-item-enhanced">
+                  <div className="tech-icon-enhanced">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                       <path d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"/>
                     </svg>
                   </div>
-                  <div>
+                  <div className="tech-content">
                     <h4>CRM Veri Akışı</h4>
-                    <p>Gerçek zamanlı veri senkronizasyonu</p>
+                    <p>Hasta bilgileri, randevu geçmişi ve iletişim kayıtları anlık olarak senkronize edilir. Çift yönlü veri akışı ile tutarlılık garanti altında.</p>
+                    <ul className="tech-features">
+                      <li>Gerçek zamanlı senkronizasyon</li>
+                      <li>Otomatik veri yedekleme</li>
+                      <li>Çakışma çözümleme</li>
+                    </ul>
                   </div>
                 </div>
-                <div className="technical-item">
-                  <div className="tech-icon">
+                <div className="technical-item-enhanced">
+                  <div className="tech-icon-enhanced">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                       <path d="M8.625 9.75a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/>
                     </svg>
                   </div>
-                  <div>
+                  <div className="tech-content">
                     <h4>WhatsApp Business API</h4>
-                    <p>Resmi WhatsApp entegrasyonu</p>
+                    <p>Meta onaylı resmi WhatsApp Business API entegrasyonu. Yeşil tik onaylı işletme profili, şablon mesajlar ve otomatik yanıt sistemi.</p>
+                    <ul className="tech-features">
+                      <li>Resmi işletme hesabı</li>
+                      <li>Sınırsız mesaj kapasitesi</li>
+                      <li>Medya & dosya paylaşımı</li>
+                    </ul>
                   </div>
                 </div>
-                <div className="technical-item">
-                  <div className="tech-icon">
+                <div className="technical-item-enhanced">
+                  <div className="tech-icon-enhanced">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                       <path d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
                     </svg>
                   </div>
-                  <div>
-                    <h4>KVKK Uyumlu</h4>
-                    <p>Veri güvenliği ve gizlilik</p>
+                  <div className="tech-content">
+                    <h4>KVKK & Güvenlik</h4>
+                    <p>6698 sayılı KVKK kanununa tam uyumluluk. Hasta verileri Türkiye'deki sunucularda, uçtan uca şifreleme ile korunur.</p>
+                    <ul className="tech-features">
+                      <li>SSL/TLS şifreleme</li>
+                      <li>GDPR & KVKK uyumlu</li>
+                      <li>Düzenli güvenlik denetimleri</li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="technical-item-enhanced">
+                  <div className="tech-icon-enhanced">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <path d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/>
+                    </svg>
+                  </div>
+                  <div className="tech-content">
+                    <h4>Google Calendar Entegrasyonu</h4>
+                    <p>Randevular otomatik olarak Google Takvim'e eklenir. Çakışma kontrolü, hatırlatıcılar ve takım takvimi senkronizasyonu.</p>
+                    <ul className="tech-features">
+                      <li>Çift yönlü senkronizasyon</li>
+                      <li>Otomatik hatırlatıcılar</li>
+                      <li>Takım takvimi desteği</li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="technical-item-enhanced">
+                  <div className="tech-icon-enhanced">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <path d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/>
+                    </svg>
+                  </div>
+                  <div className="tech-content">
+                    <h4>Analitik & Raporlama</h4>
+                    <p>Detaylı performans metrikleri ve özelleştirilebilir raporlar. Mesaj istatistikleri, randevu dönüşüm oranları ve müşteri memnuniyeti analizi.</p>
+                    <ul className="tech-features">
+                      <li>Gerçek zamanlı dashboard</li>
+                      <li>Özel rapor oluşturma</li>
+                      <li>Excel/PDF dışa aktarım</li>
+                    </ul>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="technical-visual">
+            <div className="technical-visual-enhanced">
               <img src={crm4} alt="Technical Integration" />
+              <div className="tech-stats-overlay">
+                <div className="tech-stat">
+                  <span className="tech-stat-value">99.9%</span>
+                  <span className="tech-stat-label">Uptime Garantisi</span>
+                </div>
+                <div className="tech-stat">
+                  <span className="tech-stat-value">&lt;100ms</span>
+                  <span className="tech-stat-label">API Yanıt Süresi</span>
+                </div>
+                <div className="tech-stat">
+                  <span className="tech-stat-value">256-bit</span>
+                  <span className="tech-stat-label">SSL Şifreleme</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section className="ai-gallery-section">
+        <div className="container">
+          <div className="section-header">
+            <span className="section-tag">Görsel Galeri</span>
+            <h2>AI Hizmetlerimizden Kareler</h2>
+          </div>
+          <div className="ai-gallery-grid">
+            <div className="ai-gallery-item">
+              <img src={aiCallCenter1} alt="AI Call Center" />
+            </div>
+            <div className="ai-gallery-item">
+              <img src={aiCallCenter2} alt="WhatsApp Bot" />
+            </div>
+            <div className="ai-gallery-item">
+              <img src={aiCallCenter3} alt="Dashboard" />
+            </div>
+            <div className="ai-gallery-item">
+              <img src={crm1} alt="CRM Preview" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Video Placeholder Section */}
+      <section className="ai-video-section">
+        <div className="container">
+          <div className="video-placeholder-wrapper">
+            <div className="video-placeholder">
+              <div className="video-placeholder-content">
+                <div className="video-play-icon">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </div>
+                <h3>Tanıtım Videosu</h3>
+                <p>Çok Yakında</p>
+              </div>
+            </div>
+            <div className="video-info">
+              <h3>AI Hizmetlerimizi Keşfedin</h3>
+              <p>
+                Yapay zeka destekli klinik yönetim sistemimizin nasıl çalıştığını, 
+                WhatsApp Chat Bot ve AI Call Center özelliklerimizi detaylı olarak 
+                anlatan tanıtım videomuz çok yakında sizlerle buluşacak.
+              </p>
+              <div className="video-features">
+                <div className="video-feature">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                  </svg>
+                  <span>Canlı demo gösterimi</span>
+                </div>
+                <div className="video-feature">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                  </svg>
+                  <span>Kurulum ve entegrasyon rehberi</span>
+                </div>
+                <div className="video-feature">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                  </svg>
+                  <span>Müşteri başarı hikayeleri</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

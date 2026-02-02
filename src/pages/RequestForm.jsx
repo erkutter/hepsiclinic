@@ -17,10 +17,8 @@ function RequestForm() {
     'Danışmanlık Hizmeti',
     'AI Hizmetleri (WhatsApp Bot, Call Center)',
     'CRM Programı',
-    'Sosyal Medya Yönetimi',
-    'Hepsi İK',
-    '2. El Cihaz',
-    'Sarf Malzeme',
+    'Dijital & Sosyal Medya',
+    'İK',
     'Diğer'
   ]
 
