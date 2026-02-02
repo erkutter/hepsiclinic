@@ -17,28 +17,28 @@ const heroSlides = [
   {
     id: 1,
     title: 'Danışmanlık Hizmetleri',
-    subtitle: 'Klinik Kurmak, Büyütmek ve Yönetmek İçin',
-    description: 'Kurulum, operasyon yönetimi ve pazarlama desteği.',
+    subtitle: 'Klinik Kurmak, büyütmek ve yönetmek için',
+    description: 'Hedefimiz, kliniğin ileride CRM, AI destekli iletişim ve otomasyon sistemlerine hazır hale gelmesini sağlamaktır.',
     image: danismanlik1,
     link: '/talep-formu',
     buttonText: 'Danışmanlık Al',
-    badge: 'Öncelik 1'
+    badge: ''
   },
   {
     id: 2,
     title: 'AI HİZMETLERİ',
     subtitle: 'Akıllı Klinik Asistanınız',
-    description: 'WhatsApp Bot ve AI Call Center. 7/24 otomatik iletişim.',
+    description: '7/24 Canlı Cevap Sistemi • WhatsApp & Ai Call Center Otomasyonları • CRM Entegrasyonu',
     image: aiCallCenter1,
-    link: '/ai-hizmetleri',
+    link: '/talep-formu',
     buttonText: 'Ücretsiz Demo',
-    badge: 'AI Teknolojisi'
+    badge: 'Ai Teknolojisi'
   },
   {
     id: 3,
     title: 'Sosyal Medya Yönetimi',
-    subtitle: 'Dijital Varlığınızı Güçlendirin',
-    description: 'İçerik üretimi, Google ADS ve profesyonel çekim.',
+    subtitle: 'Dijital Varlıklarınızı Güçlendirin',
+    description: 'İçerik üretimi, Web sitesi tasarımı, profesyonel çekim, Google ADS ve bir çok dijital destek hizmetleri bir arada.',
     image: socialMedia1,
     link: '/sosyal-medya',
     buttonText: 'Paketleri Gör',
@@ -46,7 +46,7 @@ const heroSlides = [
   },
   {
     id: 4,
-    title: 'Hepsi İK',
+    title: 'İK',
     subtitle: 'İş Arayan ve İşverenlerin Buluşma Noktası',
     description: 'Estetisyen, klinik koordinatörü, banko elemanı ve diğer sağlık profesyonellerinin kolayca buluştuğu KVKK uyumlu platform. İşveren paneli, CV havuzu ve güvenli işe alım.',
     image: danismanlik2,
@@ -81,8 +81,8 @@ const services = [
   },
   {
     id: 2,
-    title: 'WhatsApp Chat Bot ve AI Call Center',
-    description: 'WhatsApp Chat Bot ve AI Call Center entegrasyonu',
+    title: 'Ai Hizmetleri',
+    description: '7/24 WhatsApp Chat Bot ve Ai Call Center Otomasyonları',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"/>
@@ -93,8 +93,8 @@ const services = [
   },
   {
     id: 3,
-    title: 'Sosyal Medya',
-    description: 'Dijital pazarlama, profesyonel çekim ve web sitesi tasarımı',
+    title: 'Dijital & Sosyal Medya',
+    description: 'İçerik üretimi, Web sitesi tasarımı, profesyonel çekim ve Google ADS',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"/>
@@ -106,7 +106,7 @@ const services = [
   },
   {
     id: 4,
-    title: 'Hepsi İK',
+    title: 'İK',
     description: 'İş arayanlar ve işverenler için platform',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -115,18 +115,6 @@ const services = [
     ),
     link: '/hepsi-ik',
     color: '#6b4c9a'
-  },
-  {
-    id: 5,
-    title: '2. El Cihaz',
-    description: 'Uygun fiyatlı aradığınız cihazlar için al & sat yapabileceğiniz platform',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/>
-      </svg>
-    ),
-    link: '/ikinci-el-cihazlar',
-    color: '#c4692e'
   },
   {
     id: 6,
@@ -220,7 +208,7 @@ function Home() {
           <div className="hero-overlay"></div>
           <div className="container hero-slider-content">
             <div className="hero-text">
-              <span className="hero-badge">{slide.badge}</span>
+              {slide.badge && <span className="hero-badge">{slide.badge}</span>}
               <h1 className="hero-title">{slide.title}</h1>
               <p className="hero-subtitle">{slide.subtitle}</p>
               <p className="hero-description">{slide.description}</p>
@@ -392,7 +380,7 @@ function Home() {
             <img src={danismanlik2} alt="Sağlık profesyonelleri" />
           </div>
           <div className="hr-content scroll-animate fade-right">
-            <span className="section-tag">Hepsi İK</span>
+            <span className="section-tag">İK</span>
             <h2>İş Arayan ve İşverenlerin Ortak Buluşma Noktası</h2>
             <p>
               Estetisyen, klinik koordinatörü, banko elemanı ve diğer sağlık profesyonellerinin
@@ -505,12 +493,6 @@ function Home() {
 
           <div className="digital-gallery scroll-animate fade-up">
             <div className="gallery-grid">
-              <div className="gallery-item">
-                <img src={socialMedia1} alt="Sosyal Medya Yönetimi" />
-                <div className="gallery-overlay">
-                  <h4>Sosyal Medya İçerikleri</h4>
-                </div>
-              </div>
               <div className="gallery-item">
                 <img src={socialMedia2} alt="Profesyonel Çekim" />
                 <div className="gallery-overlay">
