@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import socialMedia1 from '../assets/socialMedia/IMG_0474.jpeg'
 import socialMedia2 from '../assets/socialMedia/IMG_0476.jpeg'
@@ -8,11 +8,10 @@ import socialMedia4 from '../assets/socialMedia/IMG_0482.jpeg'
 import danismanlik1 from '../assets/danismanlik/IMG_0377.jpeg'
 import danismanlik2 from '../assets/danismanlik/IMG_0400.jpeg'
 
-const heroVisuals = [
-  { icon: '📱', label: 'Sosyal Medya' },
-  { icon: '🌐', label: 'Web Sitesi' },
-  { icon: '🎬', label: 'TikTok' },
-  { icon: '📸', label: 'Çekim Ekibi' }
+const heroStats = [
+  { value: '500+', label: 'Yönetilen Hesap' },
+  { value: '2M+', label: 'Toplam Erişim' },
+  { value: '%180', label: 'Ortalama Büyüme' }
 ]
 
 const services = [
@@ -104,20 +103,66 @@ const services = [
       </svg>
     ),
     features: ['Influencer seçimi', 'Kampanya yönetimi', 'İçerik onayı', 'Performans analizi']
-  },
-  {
-    id: 9,
-    title: 'Yazılı ve Dijital Basın PR Destekleri',
-    description: 'Dergi, dijital basın ve outdoor reklam destekleri. Markanızın görünürlüğünü artırın.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z"/>
-      </svg>
-    ),
-    features: ['Dergi yayınları', 'Dijital basın', 'Outdoor reklamlar', 'PR stratejisi']
   }
 ]
 
+const packages = [
+  {
+    id: 1,
+    name: 'Başlangıç',
+    price: '4.990',
+    period: '/ay',
+    description: 'Yeni başlayan klinikler için temel paket',
+    features: [
+      '8 adet Instagram paylaşımı/ay',
+      '4 adet story tasarımı/hafta',
+      'İçerik planlaması',
+      'Aylık performans raporu',
+      'Temel SEO optimizasyonu',
+      'E-posta desteği'
+    ],
+    popular: false,
+    color: '#2d5a4a'
+  },
+  {
+    id: 2,
+    name: 'Profesyonel',
+    price: '9.990',
+    period: '/ay',
+    description: 'Büyümek isteyen klinikler için önerilen paket',
+    features: [
+      '16 adet Instagram paylaşımı/ay',
+      'Günlük story yönetimi',
+      '2 adet Reels video/ay',
+      'Google ADS yönetimi',
+      'Detaylı analitik raporlama',
+      'Rakip analizi',
+      'WhatsApp desteği',
+      'Etkileşim yönetimi'
+    ],
+    popular: true,
+    color: '#1a5f7a'
+  },
+  {
+    id: 3,
+    name: 'Kurumsal',
+    price: '19.990',
+    period: '/ay',
+    description: 'Tam kapsamlı dijital çözüm',
+    features: [
+      'Sınırsız sosyal medya içeriği',
+      'Profesyonel fotoğraf çekimi/ay',
+      '4 adet Reels video/ay',
+      'Google & Meta ADS yönetimi',
+      'Web sitesi bakımı',
+      'PR & basın desteği',
+      'Dedicated hesap yöneticisi',
+      '7/24 öncelikli destek'
+    ],
+    popular: false,
+    color: '#6b4c9a'
+  }
+]
 
 const portfolio = [
   { id: 1, image: socialMedia1, title: 'Instagram Feed Tasarımı', category: 'Sosyal Medya', client: 'Estetik Klinik' },
@@ -126,6 +171,25 @@ const portfolio = [
   { id: 4, image: socialMedia4, title: 'Marka Kimliği', category: 'Branding', client: 'Medikal Spa' },
   { id: 5, image: danismanlik1, title: 'Web Sitesi Tasarımı', category: 'Web', client: 'Poliklinik' },
   { id: 6, image: danismanlik2, title: 'Google ADS Kampanyası', category: 'Reklam', client: 'Dermatoloji' }
+]
+
+const testimonials = [
+  {
+    id: 1,
+    text: 'HepsiClinic ile çalışmaya başladığımızdan beri Instagram takipçi sayımız 3 kat arttı. Randevu taleplerinde ciddi bir artış yaşadık.',
+    author: 'Dr. Ayşe Yılmaz',
+    role: 'Dermatoloji Uzmanı',
+    image: socialMedia1,
+    stats: { followers: '+12K', engagement: '%4.2', leads: '+340%' }
+  },
+  {
+    id: 2,
+    text: 'Profesyonel içerik üretimi ve sosyal medya yönetimi sayesinde kliniğimizin online görünürlüğü tamamen değişti.',
+    author: 'Dr. Mehmet Kaya',
+    role: 'Estetik Cerrah',
+    image: socialMedia2,
+    stats: { followers: '+8K', engagement: '%5.1', leads: '+280%' }
+  }
 ]
 
 const instagramMetrics = [
@@ -139,6 +203,16 @@ function SocialMedia() {
   const [showForm, setShowForm] = useState(false)
   const [formSubmitted, setFormSubmitted] = useState(false)
   const [activeCategory, setActiveCategory] = useState('Tümü')
+  const [selectedPackage, setSelectedPackage] = useState(null)
+  const [currentTestimonial, setCurrentTestimonial] = useState(0)
+
+  // Auto-rotate testimonials
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)
+    }, 10000)
+    return () => clearInterval(timer)
+  }, [])
 
   const categories = ['Tümü', ...new Set(portfolio.map(p => p.category))]
   const filteredPortfolio = activeCategory === 'Tümü' 
@@ -151,7 +225,13 @@ function SocialMedia() {
     setTimeout(() => {
       setShowForm(false)
       setFormSubmitted(false)
+      setSelectedPackage(null)
     }, 2000)
+  }
+
+  const openFormWithPackage = (pkg) => {
+    setSelectedPackage(pkg)
+    setShowForm(true)
   }
 
   return (
@@ -161,38 +241,33 @@ function SocialMedia() {
         <div className="social-hero-bg">
           <div className="social-gradient-mesh"></div>
           <div className="floating-icons">
-            <span className="float-icon" style={{ '--delay': '0s', '--x': '10%', '--y': '20%' }}>👍</span>
-            <span className="float-icon" style={{ '--delay': '0.5s', '--x': '85%', '--y': '12%' }}>❤️</span>
-            <span className="float-icon" style={{ '--delay': '1s', '--x': '75%', '--y': '65%' }}>👍</span>
-            <span className="float-icon" style={{ '--delay': '1.5s', '--x': '15%', '--y': '70%' }}>❤️</span>
-            <span className="float-icon" style={{ '--delay': '2s', '--x': '50%', '--y': '25%' }}>👍</span>
-            <span className="float-icon" style={{ '--delay': '2.5s', '--x': '90%', '--y': '40%' }}>❤️</span>
-            <span className="float-icon" style={{ '--delay': '3s', '--x': '5%', '--y': '45%' }}>👍</span>
-            <span className="float-icon" style={{ '--delay': '3.5s', '--x': '60%', '--y': '80%' }}>❤️</span>
-            <span className="float-icon" style={{ '--delay': '4s', '--x': '30%', '--y': '15%' }}>👍</span>
-            <span className="float-icon" style={{ '--delay': '4.5s', '--x': '70%', '--y': '35%' }}>❤️</span>
+            <span className="float-icon" style={{ '--delay': '0s', '--x': '10%', '--y': '20%' }}>📸</span>
+            <span className="float-icon" style={{ '--delay': '1s', '--x': '80%', '--y': '15%' }}>❤️</span>
+            <span className="float-icon" style={{ '--delay': '2s', '--x': '70%', '--y': '70%' }}>📱</span>
+            <span className="float-icon" style={{ '--delay': '3s', '--x': '20%', '--y': '75%' }}>🎬</span>
+            <span className="float-icon" style={{ '--delay': '4s', '--x': '50%', '--y': '30%' }}>💬</span>
           </div>
         </div>
         <div className="container social-hero-content-new">
           <div className="hero-text-new">
             <span className="hero-badge pulse">Dijital Pazarlama</span>
-            <h1>Sosyal Medya<br /><span className="gradient-text-social">Yönetimi</span></h1>
-            <p className="hero-subtitle-large">Dijital Varlıklarınızı Güçlendirin</p>
+            <h1>Dijital İçerik &<br /><span className="gradient-text-social">Sosyal Medya Hizmetleri</span></h1>
             <p>
-              İçerik üretimi, Web sitesi tasarımı, profesyonel çekim, Google ADS ve bir çok dijital destek hizmetleri bir arada.
+              Profesyonel içerik üretimi, sosyal medya yönetimi ve dijital pazarlama 
+              ile kliniğinizin çevrimiçi görünürlüğünü artırın.
             </p>
             <div className="hero-actions-new">
-              <a href="#services" className="btn-primary-glow">Hizmetleri Keşfet</a>
+              <a href="#packages" className="btn-primary-glow">Paketleri Gör</a>
               <button onClick={() => setShowForm(true)} className="btn-outline">
-                İletişime Geç
+                Ücretsiz Analiz
               </button>
             </div>
           </div>
-          <div className="hero-visuals-grid">
-            {heroVisuals.map((item, index) => (
-              <div key={index} className="hero-visual-card" style={{ '--delay': `${index * 0.15}s` }}>
-                <span className="visual-icon">{item.icon}</span>
-                <span className="visual-label">{item.label}</span>
+          <div className="hero-stats-new">
+            {heroStats.map((stat, index) => (
+              <div key={index} className="hero-stat-card" style={{ '--delay': `${index * 0.2}s` }}>
+                <span className="stat-value">{stat.value}</span>
+                <span className="stat-label">{stat.label}</span>
               </div>
             ))}
           </div>
@@ -206,7 +281,7 @@ function SocialMedia() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="social-services-new">
+      <section className="social-services-new">
         <div className="container">
           <div className="section-header">
             <span className="section-tag">Hizmetlerimiz</span>
@@ -297,41 +372,35 @@ function SocialMedia() {
               </div>
             </div>
             <div className="instagram-visual-new">
-              <div className="iphone-promax-mockup">
-                <div className="iphone-dynamic-island"></div>
-                <div className="iphone-screen-promax">
-                  <div className="insta-header-promax">
-                    <div className="insta-profile-row">
-                      <div className="insta-avatar-small">
-                        <img src={socialMedia1} alt="Profile" />
+              <div className="phone-mockup-social">
+                <div className="phone-notch-social"></div>
+                <div className="phone-screen-social">
+                  <div className="insta-header">
+                    <span className="insta-logo">Instagram</span>
+                  </div>
+                  <div className="insta-feed">
+                    <img src={socialMedia1} alt="Instagram feed" />
+                    <div className="insta-actions">
+                      <div className="action-left">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+                        </svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M8.625 9.75a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/>
+                        </svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/>
+                        </svg>
                       </div>
-                      <span className="insta-username">klinik_demo</span>
-                      <span className="insta-verified">✓</span>
-                    </div>
-                  </div>
-                  <div className="insta-post-promax">
-                    <img src={socialMedia1} alt="Clinic post" className="insta-post-image" />
-                  </div>
-                  <div className="insta-actions-promax">
-                    <div className="action-left-promax">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
-                      </svg>
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M8.625 9.75a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/>
-                      </svg>
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/>
+                        <path d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"/>
                       </svg>
                     </div>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"/>
-                    </svg>
+                    <div className="insta-likes">2,847 beğenme</div>
                   </div>
-                  <div className="insta-likes-promax">4,592 beğenme</div>
                 </div>
               </div>
-              <div className="floating-stats-promax">
+              <div className="floating-stats">
                 <div className="floating-stat">
                   <span className="fs-icon">🔥</span>
                   <span className="fs-value">+340%</span>
@@ -381,32 +450,104 @@ function SocialMedia() {
         </div>
       </section>
 
-      {/* Packages Section - Coming Soon */}
+      {/* Testimonials Section */}
+      <section className="social-testimonials">
+        <div className="container">
+          <div className="section-header light">
+            <span className="section-tag">Müşteri Yorumları</span>
+            <h2>Başarı Hikayeleri</h2>
+          </div>
+          <div className="testimonial-slider">
+            {testimonials.map((testimonial, index) => (
+              <div 
+                key={testimonial.id}
+                className={`testimonial-slide ${index === currentTestimonial ? 'active' : ''}`}
+              >
+                <div className="testimonial-content">
+                  <div className="testimonial-quote-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                    </svg>
+                  </div>
+                  <p className="testimonial-text">{testimonial.text}</p>
+                  <div className="testimonial-author-new">
+                    <img src={testimonial.image} alt={testimonial.author} />
+                    <div>
+                      <strong>{testimonial.author}</strong>
+                      <span>{testimonial.role}</span>
+                    </div>
+                  </div>
+                  <div className="testimonial-stats">
+                    <div className="ts-item">
+                      <span className="ts-value">{testimonial.stats.followers}</span>
+                      <span className="ts-label">Takipçi</span>
+                    </div>
+                    <div className="ts-item">
+                      <span className="ts-value">{testimonial.stats.engagement}</span>
+                      <span className="ts-label">Etkileşim</span>
+                    </div>
+                    <div className="ts-item">
+                      <span className="ts-value">{testimonial.stats.leads}</span>
+                      <span className="ts-label">Randevu Artışı</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+            <div className="testimonial-dots">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  className={index === currentTestimonial ? 'active' : ''}
+                  onClick={() => setCurrentTestimonial(index)}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Packages Section */}
       <section id="packages" className="social-packages-new">
         <div className="container">
           <div className="section-header">
             <span className="section-tag">Paketler</span>
             <h2>Sosyal Medya Paketleri</h2>
-            <p>Size özel paket tekliflerimiz için bizimle iletişime geçin</p>
+            <p>İhtiyaçlarınıza uygun paketi seçin, hemen başlayalım</p>
           </div>
-          <div className="packages-coming-soon">
-            <div className="coming-soon-card">
-              <div className="coming-soon-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-              </div>
-              <h3>Paket Detayları Çok Yakında</h3>
-              <p>İhtiyaçlarınıza özel paket ve fiyat bilgisi için ekibimizle iletişime geçin. Size en uygun çözümü birlikte belirleyelim.</p>
-              <div className="coming-soon-actions">
-                <button onClick={() => setShowForm(true)} className="btn-primary">
-                  Teklif İste
+          <div className="packages-grid-new">
+            {packages.map((pkg, index) => (
+              <div 
+                key={pkg.id} 
+                className={`package-card-new ${pkg.popular ? 'popular' : ''}`}
+                style={{ '--delay': `${index * 0.15}s`, '--pkg-color': pkg.color }}
+              >
+                {pkg.popular && <span className="popular-badge-new">En Popüler</span>}
+                <h3>{pkg.name}</h3>
+                <p className="package-desc-new">{pkg.description}</p>
+                <div className="package-price-new">
+                  <span className="currency">₺</span>
+                  <span className="amount">{pkg.price}</span>
+                  <span className="period">{pkg.period}</span>
+                </div>
+                <ul className="package-features-new">
+                  {pkg.features.map((feature, i) => (
+                    <li key={i}>
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                      </svg>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <button 
+                  className={`btn-package-new ${pkg.popular ? 'btn-primary' : 'btn-outline-dark'}`}
+                  onClick={() => openFormWithPackage(pkg)}
+                >
+                  Başvur
                 </button>
-                <a href="tel:+905376023088" className="btn-outline-dark">
-                  Hemen Ara
-                </a>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -513,7 +654,13 @@ function SocialMedia() {
               </div>
             ) : (
               <>
-                <h3>Teklif Formu</h3>
+                <h3>{selectedPackage ? `${selectedPackage.name} Paket Başvurusu` : 'Teklif Formu'}</h3>
+                {selectedPackage && (
+                  <div className="selected-package-info">
+                    <span>{selectedPackage.name}</span>
+                    <strong>₺{selectedPackage.price}{selectedPackage.period}</strong>
+                  </div>
+                )}
                 <p>Bilgilerinizi bırakın, size özel teklif hazırlayalım.</p>
                 <form onSubmit={handleSubmit}>
                   <div className="form-row">
@@ -538,15 +685,17 @@ function SocialMedia() {
                   </div>
                   <div className="form-group">
                     <label>İlgilendiğiniz Hizmet</label>
-                    <select>
+                    <select defaultValue={selectedPackage?.name || ''}>
                       <option value="">Seçiniz</option>
                       <option value="social">Sosyal Medya Yönetimi</option>
                       <option value="content">İçerik Üretimi</option>
                       <option value="ads">Google ADS</option>
-                      <option value="web">Web Sitesi Tasarımı</option>
+                      <option value="web">Web Sitesi</option>
                       <option value="branding">Marka Danışmanlığı</option>
                       <option value="photo">Fotoğraf/Video Çekimi</option>
-                      <option value="seo">SEO & Dijital PR</option>
+                      <option value="Başlangıç">Başlangıç Paket</option>
+                      <option value="Profesyonel">Profesyonel Paket</option>
+                      <option value="Kurumsal">Kurumsal Paket</option>
                     </select>
                   </div>
                   <div className="form-group">
