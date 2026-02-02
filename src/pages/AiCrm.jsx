@@ -151,7 +151,6 @@ const crmModules = [
 function AiCrm() {
   const [visibleMessages, setVisibleMessages] = useState(1)
   const [isTyping, setIsTyping] = useState(false)
-  const [activeTab, setActiveTab] = useState('ai')
   const [demoStarted, setDemoStarted] = useState(false)
 
   const startDemo = () => {
@@ -189,15 +188,15 @@ function AiCrm() {
           <div className="ai-hero-content">
             <div className="badge-group">
               <span className="badge badge-ai">AI Teknolojisi</span>
+              <span className="badge badge-crm">CRM Sistemi</span>
             </div>
             <h1>
-              AI HİZMETLERİ<br />
-              <span className="gradient-text">Akıllı Klinik Asistanınız</span>
+              AI HİZMETLERİ & CRM<br />
+              <span className="gradient-text">Akıllı Klinik Yönetimi</span>
             </h1>
             <p className="ai-hero-desc">
-              WhatsApp Chat Bot ve AI Call Center entegrasyonu ile kliniğinizin iletişimini
-              7/24 otomatikleştirin. Hiçbir mesajınız cevapsız kalmasın, Google ajandanızda
-              randevularınızı hızlıca görebilirsiniz. CRM entegrasyonumuz çok yakında sizlerle olacak.
+              WhatsApp Chat Bot, AI Call Center ve kapsamlı CRM entegrasyonu ile kliniğinizin iletişimini
+              7/24 otomatikleştirin. Hasta yönetimi, randevu takibi ve ciro analizleri tek platformda.
             </p>
             <div className="ai-hero-features">
               <div className="mini-feature">
@@ -216,7 +215,7 @@ function AiCrm() {
                 <svg viewBox="0 0 24 24" fill="currentColor">
                   <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
                 </svg>
-                Google Ajanda
+                CRM Entegrasyonu
               </div>
             </div>
             <div className="ai-hero-actions">
@@ -237,36 +236,8 @@ function AiCrm() {
         </div>
       </section>
 
-      {/* Tabs Section */}
-      <section className="ai-tabs-section">
-        <div className="container">
-          <div className="ai-tabs">
-            <button
-              className={`ai-tab ${activeTab === 'ai' ? 'active' : ''}`}
-              onClick={() => setActiveTab('ai')}
-            >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/>
-              </svg>
-              AI Hizmetleri
-            </button>
-            <button
-              className={`ai-tab ${activeTab === 'crm' ? 'active' : ''}`}
-              onClick={() => setActiveTab('crm')}
-            >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"/>
-              </svg>
-              CRM Sistemi
-              <span className="coming-soon-badge">Çok Yakında</span>
-            </button>
-          </div>
-        </div>
-      </section>
-
       {/* AI Features Section */}
-      {activeTab === 'ai' && (
-        <section className="ai-features-section">
+      <section className="ai-features-section">
           <div className="container">
             <div className="section-header">
               <span className="section-tag">Özellikler</span>
@@ -288,11 +259,9 @@ function AiCrm() {
             </div>
           </div>
         </section>
-      )}
 
       {/* CRM Section */}
-      {activeTab === 'crm' && (
-        <section className="crm-coming-soon" id="crm">
+      <section className="crm-coming-soon" id="crm">
           <div className="container">
             <div className="coming-soon-content">
               <div className="coming-soon-icon">
@@ -372,7 +341,6 @@ function AiCrm() {
             </div>
           </div>
         </section>
-      )}
 
       {/* Live Demo Section */}
       <section className="ai-demo-section">

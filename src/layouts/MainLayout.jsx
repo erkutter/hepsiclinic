@@ -59,16 +59,13 @@ function MainLayout() {
               Danışmanlık
             </Link>
             <Link to="/ai-hizmetleri" className={location.pathname === '/ai-hizmetleri' ? 'active' : ''}>
-              Ai Hizmetleri
+              AI Hizmetleri & CRM
             </Link>
             <Link to="/sosyal-medya" className={location.pathname === '/sosyal-medya' ? 'active' : ''}>
               Dijital & Sosyal Medya
             </Link>
             <Link to="/hepsi-ik" className={location.pathname === '/hepsi-ik' ? 'active' : ''}>
               İK
-            </Link>
-            <Link to="/ai-hizmetleri#crm" className={location.pathname === '/ai-hizmetleri' ? 'active' : ''}>
-              CRM
             </Link>
           </nav>
 
@@ -131,10 +128,9 @@ function MainLayout() {
               <div className="footer-column">
                 <h4>Hizmetler</h4>
                 <Link to="/danismanlik">Danışmanlık</Link>
-                <Link to="/ai-hizmetleri">AI Hizmetleri</Link>
+                <Link to="/ai-hizmetleri">AI Hizmetleri & CRM</Link>
                 <Link to="/sosyal-medya">Dijital & Sosyal Medya</Link>
                 <Link to="/hepsi-ik">İnsan Kaynakları</Link>
-                <Link to="/ai-hizmetleri#crm">CRM</Link>
               </div>
               <div className="footer-column">
                 <h4>İletişim</h4>
