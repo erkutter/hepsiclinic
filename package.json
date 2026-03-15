@@ -10,10 +10,10 @@
     "lint": "eslint ."
   },
   "engines": {
-    "node": ">=18.20.0 <18.21.0"
+    "node": "24.x"
   },
   "dependencies": {
-    "next": "15.5.12",
+    "next": "16.1.1",
     "react": "^19.2.3",
     "react-dom": "^19.2.3"
   },
