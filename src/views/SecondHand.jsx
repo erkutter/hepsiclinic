@@ -1,5 +1,8 @@
-import { Link } from 'react-router-dom'
+'use client'
+
+import Link from 'next/link'
 import { useState } from 'react'
+import { getAssetSrc } from '../lib/getAssetSrc'
 
 import crm1 from '../assets/CRM/IMG_0458.jpeg'
 
@@ -21,7 +24,7 @@ function SecondHand() {
       {/* Hero Section */}
       <section className="secondhand-hero-construction">
         <div className="secondhand-hero-bg">
-          <img src={crm1} alt="2. El Cihazlar" />
+          <img src={getAssetSrc(crm1)} alt="2. El Cihazlar" />
           <div className="hero-gradient-dark"></div>
         </div>
         <div className="container secondhand-hero-content">
@@ -55,7 +58,7 @@ function SecondHand() {
             <button onClick={() => setShowContactForm(true)} className="btn-primary-large">
               Lansman için Bilgi Al
             </button>
-            <Link to="/talep-formu" className="btn-outline-light">
+            <Link href="/talep-formu" className="btn-outline-light">
               Danışmanlık Al
             </Link>
           </div>
@@ -267,7 +270,7 @@ function SecondHand() {
                   <div className="form-consent">
                     <label>
                       <input type="checkbox" required />
-                      <span><Link to="/kvkk">KVKK</Link>'yı kabul ediyorum</span>
+                      <span><Link href="/kvkk">KVKK</Link>'yı kabul ediyorum</span>
                     </label>
                   </div>
                   <button type="submit" className="btn-submit">Gönder</button>

@@ -1,5 +1,8 @@
-import { Link } from 'react-router-dom'
+'use client'
+
+import Link from 'next/link'
 import { useState } from 'react'
+import { getAssetSrc } from '../lib/getAssetSrc'
 
 // Import images
 import danismanlik1 from '../assets/danismanlik/IMG_0377.jpeg'
@@ -150,14 +153,14 @@ function Consulting() {
       {/* Hero Section */}
       <section className="consulting-hero-new">
         <div className="consulting-hero-bg">
-          <img src={danismanlik1} alt="Danışmanlık" />
+          <img src={getAssetSrc(danismanlik1)} alt="Danışmanlık" />
           <div className="hero-gradient"></div>
         </div>
         <div className="container consulting-hero-content">
           <h1>Klinik Kurmak, Büyütmek ve Yönetmek İçin<br /><span>İş Ortağınız</span></h1>
           <p className="hero-subtitle-large">Kliniklerin bugünü için çözüm, yarını için sistem kurarız.</p>
           <div className="hero-actions">
-            <Link to="/talep-formu" className="btn-primary">Danışmanlık Al</Link>
+            <Link href="/talep-formu" className="btn-primary">Danışmanlık Al</Link>
             <a href="tel:+905376023088" className="btn-outline">İletişime Geç</a>
           </div>
         </div>
@@ -203,7 +206,7 @@ function Consulting() {
               </p>
             </div>
             <div className="module-visual">
-              <img src={danismanlik2} alt="İş Ortağı" />
+              <img src={getAssetSrc(danismanlik2)} alt="İş Ortağı" />
             </div>
           </div>
         </div>
@@ -317,29 +320,29 @@ function Consulting() {
           <div className="approach-gallery">
             <div className="gallery-track">
               <div className="gallery-slide">
-                <img src={danismanlik1} alt="Danışmanlık" />
+                <img src={getAssetSrc(danismanlik1)} alt="Danışmanlık" />
               </div>
               <div className="gallery-slide">
-                <img src={danismanlik2} alt="Klinik Danışmanlığı" />
+                <img src={getAssetSrc(danismanlik2)} alt="Klinik Danışmanlığı" />
               </div>
               <div className="gallery-slide">
-                <img src={danismanlik3} alt="İş Ortaklığı" />
+                <img src={getAssetSrc(danismanlik3)} alt="İş Ortaklığı" />
               </div>
               <div className="gallery-slide">
-                <img src={danismanlik4} alt="Profesyonel Destek" />
+                <img src={getAssetSrc(danismanlik4)} alt="Profesyonel Destek" />
               </div>
               {/* Duplicate for seamless loop */}
               <div className="gallery-slide">
-                <img src={danismanlik1} alt="Danışmanlık" />
+                <img src={getAssetSrc(danismanlik1)} alt="Danışmanlık" />
               </div>
               <div className="gallery-slide">
-                <img src={danismanlik2} alt="Klinik Danışmanlığı" />
+                <img src={getAssetSrc(danismanlik2)} alt="Klinik Danışmanlığı" />
               </div>
               <div className="gallery-slide">
-                <img src={danismanlik3} alt="İş Ortaklığı" />
+                <img src={getAssetSrc(danismanlik3)} alt="İş Ortaklığı" />
               </div>
               <div className="gallery-slide">
-                <img src={danismanlik4} alt="Profesyonel Destek" />
+                <img src={getAssetSrc(danismanlik4)} alt="Profesyonel Destek" />
               </div>
             </div>
           </div>
@@ -522,7 +525,7 @@ function Consulting() {
                       <label>
                         <input type="checkbox" required />
                         <span>
-                          <Link to="/kvkk">KVKK Aydınlatma Metni</Link>'ni okudum ve kabul ediyorum.
+                          <Link href="/kvkk">KVKK Aydınlatma Metni</Link>'ni okudum ve kabul ediyorum.
                         </span>
                       </label>
                     </div>

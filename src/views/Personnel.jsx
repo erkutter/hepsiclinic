@@ -1,18 +1,51 @@
-import { Link } from 'react-router-dom'
+'use client'
+
+import Link from 'next/link'
 import { useState } from 'react'
+import { getAssetSrc } from '../lib/getAssetSrc'
 
 import danismanlik2 from '../assets/danismanlik/IMG_0400.jpeg'
 
 const jobCategories = [
   { id: 1, name: 'Estetisyen', count: 24 },
   { id: 2, name: 'Klinik Koordinatörü', count: 18 },
-  { id: 3, name: 'Banko Elemanı', count: 15 },
-  { id: 4, name: 'Hemşire', count: 12 },
+  { id: 3, name: 'Doktor', count: 12 },
+  { id: 4, name: 'Hemşire', count: 15 },
   { id: 5, name: 'Resepsiyonist', count: 21 },
   { id: 6, name: 'Güzellik Uzmanı', count: 16 }
 ]
 
-function HepsiIK() {
+const featuredJobs = [
+  {
+    id: 1,
+    title: 'Kıdemli Estetisyen',
+    company: 'Premium Estetik Merkezi',
+    location: 'İstanbul - Kadıköy',
+    salary: '25.000₺ - 35.000₺',
+    type: 'Tam Zamanlı',
+    posted: '2 gün önce'
+  },
+  {
+    id: 2,
+    title: 'Klinik Koordinatörü',
+    company: 'Beauty Plus Klinik',
+    location: 'İstanbul - Şişli',
+    salary: '30.000₺ - 40.000₺',
+    type: 'Tam Zamanlı',
+    posted: '3 gün önce'
+  },
+  {
+    id: 3,
+    title: 'Dermatoloji Uzmanı',
+    company: 'Sağlık & Güzellik',
+    location: 'Ankara - Çankaya',
+    salary: '50.000₺ - 70.000₺',
+    type: 'Tam Zamanlı',
+    posted: '1 hafta önce'
+  }
+]
+
+function Personnel() {
   const [activePanel, setActivePanel] = useState('jobseeker')
   const [formData, setFormData] = useState({
     name: '',
@@ -21,7 +54,8 @@ function HepsiIK() {
     profession: '',
     experience: '',
     city: '',
-    cv: null
+    cv: null,
+    privacy: 'public'
   })
   const [employerData, setEmployerData] = useState({
     companyName: '',
@@ -47,57 +81,58 @@ function HepsiIK() {
       {/* Hero Section */}
       <section className="personnel-hero-new">
         <div className="personnel-hero-bg">
-          <img src={danismanlik2} alt="İK" />
+          <img src={getAssetSrc(danismanlik2)} alt="Personel" />
           <div className="hero-gradient"></div>
         </div>
         <div className="container personnel-hero-content">
           <div className="hero-badge-wrapper">
-            <span className="hero-badge">İnsan Kaynakları</span>
+            <span className="hero-badge">Hepsi Eleman</span>
           </div>
-          <h1>İnsan Kaynakları<br /><span>İş Arayan ve İşverenlerin Buluşma Noktası</span></h1>
+          <h1>Sağlık Sektöründe<br /><span>Kariyer Fırsatları</span></h1>
           <p>
-            Estetisyen, klinik koordinatörü, banko elemanı ve diğer sağlık profesyonellerinin 
-            kolayca buluştuğu bir platform. KVKK uyumlu sistemimizle güvenle işe alım yapın veya iş arayın.
+            Estetisyen, klinik koordinatörü, doktor ve diğer sağlık profesyonellerini 
+            kolayca bulun veya kariyerinizi bir adım öne taşıyın.
           </p>
-          <div className="hero-features-list">
-            <div className="hero-feature-item">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-              </svg>
-              <span>İşveren Paneli</span>
-            </div>
-            <div className="hero-feature-item">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-              </svg>
-              <span>CV Havuzu</span>
-            </div>
-            <div className="hero-feature-item">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-              </svg>
-              <span>KVKK Uyumlu</span>
-            </div>
-            <div className="hero-feature-item">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-              </svg>
-              <span>Güvenli İşlem</span>
-            </div>
-          </div>
           <div className="hero-actions">
-            <button
-              onClick={() => setActivePanel('jobseeker')}
+            <button 
+              onClick={() => setActivePanel('jobseeker')} 
               className="btn-primary"
             >
               İş Arıyorum
             </button>
-            <button
-              onClick={() => setActivePanel('employer')}
+            <button 
+              onClick={() => setActivePanel('employer')} 
               className="btn-outline"
             >
               Eleman Arıyorum
             </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats */}
+      <section className="personnel-stats">
+        <div className="container">
+          <div className="stats-bar">
+            <div className="stat-item-mini">
+              <strong>500+</strong>
+              <span>Aktif İlan</span>
+            </div>
+            <div className="stat-divider"></div>
+            <div className="stat-item-mini">
+              <strong>1000+</strong>
+              <span>CV Havuzu</span>
+            </div>
+            <div className="stat-divider"></div>
+            <div className="stat-item-mini">
+              <strong>200+</strong>
+              <span>İşveren</span>
+            </div>
+            <div className="stat-divider"></div>
+            <div className="stat-item-mini">
+              <strong>850+</strong>
+              <span>Yerleştirme</span>
+            </div>
           </div>
         </div>
       </section>
@@ -109,7 +144,7 @@ function HepsiIK() {
             {/* Sidebar */}
             <aside className="personnel-sidebar">
               <div className="panel-switcher">
-                <button
+                <button 
                   className={`switcher-btn ${activePanel === 'jobseeker' ? 'active' : ''}`}
                   onClick={() => setActivePanel('jobseeker')}
                 >
@@ -118,7 +153,7 @@ function HepsiIK() {
                   </svg>
                   İş Arayan
                 </button>
-                <button
+                <button 
                   className={`switcher-btn ${activePanel === 'employer' ? 'active' : ''}`}
                   onClick={() => setActivePanel('employer')}
                 >
@@ -143,7 +178,7 @@ function HepsiIK() {
 
               <div className="info-card">
                 <h4>KVKK Uyumlu Sistem</h4>
-                <p>Tüm verileriniz güvenle saklanır. Taraflar birbirini görmez, platform tarafından yönetilir.</p>
+                <p>Tüm verileriniz güvenle saklanır. Taraflar birbirini görmez, sadece HepsiClinic yönetir.</p>
               </div>
             </aside>
 
@@ -169,36 +204,36 @@ function HepsiIK() {
                       <div className="form-row">
                         <div className="form-group">
                           <label>Ad Soyad *</label>
-                          <input
-                            type="text"
+                          <input 
+                            type="text" 
                             value={formData.name}
                             onChange={(e) => setFormData({...formData, name: e.target.value})}
-                            required
+                            required 
                           />
                         </div>
                         <div className="form-group">
                           <label>E-posta *</label>
-                          <input
-                            type="email"
+                          <input 
+                            type="email" 
                             value={formData.email}
                             onChange={(e) => setFormData({...formData, email: e.target.value})}
-                            required
+                            required 
                           />
                         </div>
                       </div>
                       <div className="form-row">
                         <div className="form-group">
                           <label>Telefon *</label>
-                          <input
-                            type="tel"
+                          <input 
+                            type="tel" 
                             value={formData.phone}
                             onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                            required
+                            required 
                           />
                         </div>
                         <div className="form-group">
                           <label>Şehir</label>
-                          <select
+                          <select 
                             value={formData.city}
                             onChange={(e) => setFormData({...formData, city: e.target.value})}
                           >
@@ -214,7 +249,7 @@ function HepsiIK() {
                       <div className="form-row">
                         <div className="form-group">
                           <label>Meslek *</label>
-                          <select
+                          <select 
                             value={formData.profession}
                             onChange={(e) => setFormData({...formData, profession: e.target.value})}
                             required
@@ -227,7 +262,7 @@ function HepsiIK() {
                         </div>
                         <div className="form-group">
                           <label>Deneyim</label>
-                          <select
+                          <select 
                             value={formData.experience}
                             onChange={(e) => setFormData({...formData, experience: e.target.value})}
                           >
@@ -242,8 +277,8 @@ function HepsiIK() {
                       <div className="form-group">
                         <label>CV Yükle (PDF, DOC)</label>
                         <div className="file-upload">
-                          <input
-                            type="file"
+                          <input 
+                            type="file" 
                             accept=".pdf,.doc,.docx"
                             onChange={(e) => setFormData({...formData, cv: e.target.files[0]})}
                           />
@@ -255,10 +290,35 @@ function HepsiIK() {
                           </div>
                         </div>
                       </div>
+                      <div className="form-group">
+                        <label>Gizlilik Ayarı</label>
+                        <div className="radio-group">
+                          <label className="radio-label">
+                            <input 
+                              type="radio" 
+                              name="privacy" 
+                              value="public"
+                              checked={formData.privacy === 'public'}
+                              onChange={(e) => setFormData({...formData, privacy: e.target.value})}
+                            />
+                            <span>İşverenlere Açık</span>
+                          </label>
+                          <label className="radio-label">
+                            <input 
+                              type="radio" 
+                              name="privacy" 
+                              value="private"
+                              checked={formData.privacy === 'private'}
+                              onChange={(e) => setFormData({...formData, privacy: e.target.value})}
+                            />
+                            <span>Sadece Başvurduklarıma</span>
+                          </label>
+                        </div>
+                      </div>
                       <div className="form-consent">
                         <label>
                           <input type="checkbox" required />
-                          <span><Link to="/kvkk">KVKK Aydınlatma Metni</Link>'ni okudum ve kabul ediyorum.</span>
+                          <span><Link href="/kvkk">KVKK Aydınlatma Metni</Link>'ni okudum ve kabul ediyorum.</span>
                         </label>
                       </div>
                       <button type="submit" className="btn-submit">
@@ -269,6 +329,42 @@ function HepsiIK() {
                       </button>
                     </form>
                   )}
+
+                  {/* Featured Jobs */}
+                  <div className="featured-jobs">
+                    <h3>Öne Çıkan İlanlar</h3>
+                    <div className="jobs-list">
+                      {featuredJobs.map((job) => (
+                        <div key={job.id} className="job-card">
+                          <div className="job-header">
+                            <h4>{job.title}</h4>
+                            <span className="job-type">{job.type}</span>
+                          </div>
+                          <p className="job-company">{job.company}</p>
+                          <div className="job-details">
+                            <span>
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                                <path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                <path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+                              </svg>
+                              {job.location}
+                            </span>
+                            <span>
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                                <path d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                              </svg>
+                              {job.salary}
+                            </span>
+                          </div>
+                          <div className="job-footer">
+                            <span className="job-posted">{job.posted}</span>
+                            <button className="btn-apply">Başvur</button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <Link href="/ilanlar" className="btn-view-all">Tüm İlanları Gör →</Link>
+                  </div>
                 </div>
               ) : (
                 <div className="employer-panel">
@@ -292,40 +388,40 @@ function HepsiIK() {
                         <div className="form-row">
                           <div className="form-group">
                             <label>Şirket/Klinik Adı *</label>
-                            <input
-                              type="text"
+                            <input 
+                              type="text" 
                               value={employerData.companyName}
                               onChange={(e) => setEmployerData({...employerData, companyName: e.target.value})}
-                              required
+                              required 
                             />
                           </div>
                           <div className="form-group">
                             <label>Yetkili Adı *</label>
-                            <input
-                              type="text"
+                            <input 
+                              type="text" 
                               value={employerData.contactName}
                               onChange={(e) => setEmployerData({...employerData, contactName: e.target.value})}
-                              required
+                              required 
                             />
                           </div>
                         </div>
                         <div className="form-row">
                           <div className="form-group">
                             <label>E-posta *</label>
-                            <input
-                              type="email"
+                            <input 
+                              type="email" 
                               value={employerData.email}
                               onChange={(e) => setEmployerData({...employerData, email: e.target.value})}
-                              required
+                              required 
                             />
                           </div>
                           <div className="form-group">
                             <label>Telefon *</label>
-                            <input
-                              type="tel"
+                            <input 
+                              type="tel" 
                               value={employerData.phone}
                               onChange={(e) => setEmployerData({...employerData, phone: e.target.value})}
-                              required
+                              required 
                             />
                           </div>
                         </div>
@@ -336,7 +432,7 @@ function HepsiIK() {
                         <div className="form-row">
                           <div className="form-group">
                             <label>Pozisyon *</label>
-                            <select
+                            <select 
                               value={employerData.position}
                               onChange={(e) => setEmployerData({...employerData, position: e.target.value})}
                               required
@@ -349,19 +445,19 @@ function HepsiIK() {
                           </div>
                           <div className="form-group">
                             <label>Lokasyon *</label>
-                            <input
-                              type="text"
+                            <input 
+                              type="text" 
                               placeholder="Örn: İstanbul - Kadıköy"
                               value={employerData.location}
                               onChange={(e) => setEmployerData({...employerData, location: e.target.value})}
-                              required
+                              required 
                             />
                           </div>
                         </div>
                         <div className="form-group">
                           <label>Maaş Aralığı</label>
-                          <input
-                            type="text"
+                          <input 
+                            type="text" 
                             placeholder="Örn: 25.000₺ - 35.000₺"
                             value={employerData.salary}
                             onChange={(e) => setEmployerData({...employerData, salary: e.target.value})}
@@ -369,7 +465,7 @@ function HepsiIK() {
                         </div>
                         <div className="form-group">
                           <label>Aranan Nitelikler *</label>
-                          <textarea
+                          <textarea 
                             rows="4"
                             placeholder="Gerekli deneyim, sertifikalar, beceriler..."
                             value={employerData.requirements}
@@ -382,7 +478,7 @@ function HepsiIK() {
                       <div className="form-consent">
                         <label>
                           <input type="checkbox" required />
-                          <span><Link to="/kvkk">KVKK Aydınlatma Metni</Link>'ni okudum ve kabul ediyorum.</span>
+                          <span><Link href="/kvkk">KVKK Aydınlatma Metni</Link>'ni okudum ve kabul ediyorum.</span>
                         </label>
                       </div>
                       <button type="submit" className="btn-submit">
@@ -435,24 +531,16 @@ function HepsiIK() {
         <div className="container personnel-cta-content">
           <h2>Sorularınız mı Var?</h2>
           <p>İnsan kaynakları ekibimizle iletişime geçin</p>
-          <div className="personnel-cta-actions">
-            <a href="tel:+905376023088" className="btn-white">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
-              </svg>
-              Hemen Arayın
-            </a>
-            <Link to="/talep-formu" className="btn-outline-white">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-              </svg>
-              Form Doldurun
-            </Link>
-          </div>
+          <a href="tel:+905551234567" className="btn-white">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+            Hemen Arayın
+          </a>
         </div>
       </section>
     </>
   )
 }
 
-export default HepsiIK
+export default Personnel

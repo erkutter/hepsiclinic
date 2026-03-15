@@ -1,14 +1,18 @@
-import { Link, Outlet, useLocation } from 'react-router-dom'
+'use client'
+
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import logo from '../assets/logo.svg'
+import { getAssetSrc } from '../lib/getAssetSrc'
 
-function MainLayout() {
+function MainLayout({ children }) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [showNewsletterModal, setShowNewsletterModal] = useState(false)
   const [newsletterEmail, setNewsletterEmail] = useState('')
   const [newsletterSubmitted, setNewsletterSubmitted] = useState(false)
-  const location = useLocation()
+  const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,9 +23,12 @@ function MainLayout() {
   }, [])
 
   useEffect(() => {
-    setIsMobileMenuOpen(false)
     window.scrollTo(0, 0)
-  }, [location.pathname])
+  }, [pathname])
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false)
+  }
 
   const handleNewsletterSubmit = (e) => {
     e.preventDefault()
@@ -39,8 +46,8 @@ function MainLayout() {
     <div className="page">
       <header className={`site-header ${isScrolled ? 'scrolled' : ''}`}>
         <div className="container header-inner">
-          <Link to="/" className="brand">
-            <img src={logo} alt="HepsiClinic" className="brand-logo" />
+          <Link href="/" className="brand" onClick={closeMobileMenu}>
+            <img src={getAssetSrc(logo)} alt="HepsiClinic" className="brand-logo" />
           </Link>
 
           <button
@@ -56,22 +63,22 @@ function MainLayout() {
           </button>
 
           <nav className={`main-nav ${isMobileMenuOpen ? 'open' : ''}`} aria-label="Ana menü">
-            <Link to="/danismanlik" className={location.pathname === '/danismanlik' ? 'active' : ''}>
+            <Link href="/danismanlik" className={pathname === '/danismanlik' ? 'active' : ''} onClick={closeMobileMenu}>
               Danışmanlık
             </Link>
-            <Link to="/ai-hizmetleri" className={location.pathname === '/ai-hizmetleri' ? 'active' : ''}>
+            <Link href="/ai-hizmetleri" className={pathname === '/ai-hizmetleri' ? 'active' : ''} onClick={closeMobileMenu}>
               AI Hizmetleri & CRM
             </Link>
-            <Link to="/sosyal-medya" className={location.pathname === '/sosyal-medya' ? 'active' : ''}>
+            <Link href="/sosyal-medya" className={pathname === '/sosyal-medya' ? 'active' : ''} onClick={closeMobileMenu}>
               Dijital & Sosyal Medya
             </Link>
-            <Link to="/hepsi-ik" className={location.pathname === '/hepsi-ik' ? 'active' : ''}>
+            <Link href="/hepsi-ik" className={pathname === '/hepsi-ik' ? 'active' : ''} onClick={closeMobileMenu}>
               İK
             </Link>
           </nav>
 
           <div className="header-actions">
-            <Link to="/uye-ol" className="btn-contact">
+            <Link href="/uye-ol" className="btn-contact" onClick={closeMobileMenu}>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
               </svg>
@@ -82,14 +89,14 @@ function MainLayout() {
       </header>
 
       <main>
-        <Outlet />
+        {children}
       </main>
 
       <footer className="site-footer">
         <div className="container">
           <div className="footer-top">
             <div className="footer-brand">
-              <img src={logo} alt="HepsiClinic" className="footer-logo" />
+              <img src={getAssetSrc(logo)} alt="HepsiClinic" className="footer-logo" />
               <p>Tüm Klinik Çözümleri Tek Platformda</p>
               <div className="social-links">
                 <a href="https://wa.me/905376023088" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
@@ -128,10 +135,10 @@ function MainLayout() {
             <div className="footer-links">
               <div className="footer-column">
                 <h4>Hizmetler</h4>
-                <Link to="/danismanlik">Danışmanlık</Link>
-                <Link to="/ai-hizmetleri">AI Hizmetleri & CRM</Link>
-                <Link to="/sosyal-medya">Dijital & Sosyal Medya</Link>
-                <Link to="/hepsi-ik">İnsan Kaynakları</Link>
+                <Link href="/danismanlik">Danışmanlık</Link>
+                <Link href="/ai-hizmetleri">AI Hizmetleri & CRM</Link>
+                <Link href="/sosyal-medya">Dijital & Sosyal Medya</Link>
+                <Link href="/hepsi-ik">İnsan Kaynakları</Link>
               </div>
               <div className="footer-column">
                 <h4>İletişim</h4>
@@ -143,7 +150,7 @@ function MainLayout() {
           </div>
 
           <div className="footer-bottom">
-            <p>&copy; 2026 HepsiClinic.com - Tüm hakları saklıdır. | <Link to="/kvkk">KVKK</Link> | <Link to="/gizlilik">Gizlilik Politikası</Link> | <Link to="/kullanim-sartlari">Kullanım Şartları</Link></p>
+            <p>&copy; 2026 HepsiClinic.com - Tüm hakları saklıdır. | <Link href="/kvkk">KVKK</Link> | <Link href="/gizlilik">Gizlilik Politikası</Link> | <Link href="/kullanim-sartlari">Kullanım Şartları</Link></p>
           </div>
         </div>
       </footer>
@@ -200,7 +207,7 @@ function MainLayout() {
                   <div className="form-consent">
                     <label>
                       <input type="checkbox" required />
-                      <span><Link to="/kvkk" onClick={() => setShowNewsletterModal(false)}>KVKK</Link>'yı kabul ediyorum</span>
+                      <span><Link href="/kvkk" onClick={() => setShowNewsletterModal(false)}>KVKK</Link>'yı kabul ediyorum</span>
                     </label>
                   </div>
                   <button type="submit" className="btn-submit">Üye Ol</button>

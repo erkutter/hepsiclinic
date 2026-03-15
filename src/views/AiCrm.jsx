@@ -1,5 +1,8 @@
-import { Link } from 'react-router-dom'
+'use client'
+
+import Link from 'next/link'
 import { useState, useEffect } from 'react'
+import { getAssetSrc } from '../lib/getAssetSrc'
 
 // Import images
 import aiCallCenter1 from '../assets/aiCallCenter/IMG_0398.jpeg'
@@ -7,8 +10,6 @@ import aiCallCenter2 from '../assets/aiCallCenter/IMG_0448.jpeg'
 import aiCallCenter3 from '../assets/aiCallCenter/IMG_0450.jpeg'
 import whatsappImage from '../assets/apple-whatsapp.png'
 import crm1 from '../assets/CRM/IMG_0458.jpeg'
-import crm2 from '../assets/CRM/IMG_0460.jpeg'
-import crm3 from '../assets/CRM/IMG_0464.jpeg'
 import crm4 from '../assets/CRM/IMG_0466.jpeg'
 
 const chatDemo = [
@@ -225,12 +226,12 @@ function AiCrm() {
                 </svg>
                 Ücretsiz Demo
               </button>
-              <Link to="/talep-formu" className="btn-outline-dark">Teklif Al</Link>
+              <Link href="/talep-formu" className="btn-outline-dark">Teklif Al</Link>
             </div>
           </div>
           <div className="ai-hero-visual">
             <div className="whatsapp-image-wrapper">
-              <img src={whatsappImage} alt="WhatsApp AI Assistant Demo" className="whatsapp-demo-image" />
+              <img src={getAssetSrc(whatsappImage)} alt="WhatsApp AI Assistant Demo" className="whatsapp-demo-image" />
             </div>
           </div>
         </div>
@@ -325,7 +326,7 @@ function AiCrm() {
                 </div>
               </div>
               <div className="crm-cta-buttons">
-                <Link to="/talep-formu" className="btn-primary-large">
+                <Link href="/talep-formu" className="btn-primary-large">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"/>
                   </svg>
@@ -550,7 +551,7 @@ function AiCrm() {
               </div>
             </div>
             <div className="technical-visual-enhanced">
-              <img src={crm4} alt="Technical Integration" />
+              <img src={getAssetSrc(crm4)} alt="Technical Integration" />
             </div>
           </div>
         </div>
@@ -565,16 +566,16 @@ function AiCrm() {
           </div>
           <div className="ai-gallery-grid">
             <div className="ai-gallery-item">
-              <img src={aiCallCenter1} alt="AI Call Center" />
+              <img src={getAssetSrc(aiCallCenter1)} alt="AI Call Center" />
             </div>
             <div className="ai-gallery-item">
-              <img src={aiCallCenter2} alt="WhatsApp Bot" />
+              <img src={getAssetSrc(aiCallCenter2)} alt="WhatsApp Bot" />
             </div>
             <div className="ai-gallery-item">
-              <img src={aiCallCenter3} alt="Dashboard" />
+              <img src={getAssetSrc(aiCallCenter3)} alt="Dashboard" />
             </div>
             <div className="ai-gallery-item">
-              <img src={crm1} alt="CRM Preview" />
+              <img src={getAssetSrc(crm1)} alt="CRM Preview" />
             </div>
           </div>
         </div>
@@ -636,7 +637,7 @@ function AiCrm() {
             AI hizmetlerinin kliniğinize nasıl değer katabileceğini keşfedin.
           </p>
           <div className="ai-cta-actions">
-            <Link to="/talep-formu" className="btn-white-large">Ücretsiz Demo İste</Link>
+            <Link href="/talep-formu" className="btn-white-large">Ücretsiz Demo İste</Link>
             <a href="tel:+905376023088" className="btn-outline-white">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>

@@ -1,5 +1,8 @@
-import { Link } from 'react-router-dom'
+'use client'
+
+import Link from 'next/link'
 import { useState } from 'react'
+import { getAssetSrc } from '../lib/getAssetSrc'
 
 import socialMedia1 from '../assets/socialMedia/IMG_0474.jpeg'
 import socialMedia2 from '../assets/socialMedia/IMG_0476.jpeg'
@@ -303,14 +306,14 @@ function SocialMedia() {
                   <div className="insta-header-promax">
                     <div className="insta-profile-row">
                       <div className="insta-avatar-small">
-                        <img src={socialMedia1} alt="Profile" />
+                        <img src={getAssetSrc(socialMedia1)} alt="Profile" />
                       </div>
                       <span className="insta-username">klinik_demo</span>
                       <span className="insta-verified">✓</span>
                     </div>
                   </div>
                   <div className="insta-post-promax">
-                    <img src={socialMedia1} alt="Clinic post" className="insta-post-image" />
+                    <img src={getAssetSrc(socialMedia1)} alt="Clinic post" className="insta-post-image" />
                   </div>
                   <div className="insta-actions-promax">
                     <div className="action-left-promax">
@@ -369,7 +372,7 @@ function SocialMedia() {
                 className="portfolio-item-new"
                 style={{ '--delay': `${index * 0.1}s` }}
               >
-                <img src={item.image} alt={item.title} />
+                <img src={getAssetSrc(item.image)} alt={item.title} />
                 <div className="portfolio-overlay-new">
                   <span className="portfolio-category-new">{item.category}</span>
                   <h4>{item.title}</h4>
@@ -457,9 +460,9 @@ function SocialMedia() {
             </div>
             <div className="photo-gallery-new">
               <div className="gallery-grid">
-                <img src={socialMedia3} alt="Profesyonel çekim" className="gallery-large" />
-                <img src={socialMedia4} alt="Video çekim" className="gallery-small-1" />
-                <img src={socialMedia2} alt="İçerik üretimi" className="gallery-small-2" />
+                <img src={getAssetSrc(socialMedia3)} alt="Profesyonel çekim" className="gallery-large" />
+                <img src={getAssetSrc(socialMedia4)} alt="Video çekim" className="gallery-small-1" />
+                <img src={getAssetSrc(socialMedia2)} alt="İçerik üretimi" className="gallery-small-2" />
               </div>
               <div className="gallery-badge">
                 <span>100+</span>
@@ -560,7 +563,7 @@ function SocialMedia() {
                   <div className="form-consent">
                     <label>
                       <input type="checkbox" required />
-                      <span><Link to="/kvkk">KVKK</Link>'yı kabul ediyorum</span>
+                      <span><Link href="/kvkk">KVKK</Link>'yı kabul ediyorum</span>
                     </label>
                   </div>
                   <button type="submit" className="btn-submit">Teklif İste</button>

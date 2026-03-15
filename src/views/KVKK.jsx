@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 
 function KVKK() {
   return (
@@ -135,7 +135,7 @@ function KVKK() {
                 KVKK kapsamındaki haklarınız veya kişisel verilerinizin işlenmesi hakkında
                 sorularınız için bizimle iletişime geçebilirsiniz.
               </p>
-              <Link to="/danismanlik" className="btn-primary">İletişime Geç</Link>
+              <Link href="/danismanlik" className="btn-primary">İletişime Geç</Link>
             </div>
           </div>
         </div>

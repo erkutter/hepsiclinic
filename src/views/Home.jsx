@@ -1,11 +1,13 @@
-import { Link } from 'react-router-dom'
+'use client'
+
+import Link from 'next/link'
 import { useState, useEffect } from 'react'
+import { getAssetSrc } from '../lib/getAssetSrc'
 
 // Import images
 import danismanlik1 from '../assets/danismanlik/IMG_0377.jpeg'
 import danismanlik2 from '../assets/danismanlik/IMG_0400.jpeg'
 import aiCallCenter1 from '../assets/aiCallCenter/IMG_0398.jpeg'
-import aiCallCenter2 from '../assets/aiCallCenter/IMG_0448.jpeg'
 import crm1 from '../assets/CRM/IMG_0458.jpeg'
 import socialMedia1 from '../assets/socialMedia/IMG_0474.jpeg'
 import socialMedia2 from '../assets/socialMedia/IMG_0476.jpeg'
@@ -19,7 +21,7 @@ const heroSlides = [
     title: 'Danışmanlık Hizmetleri',
     subtitle: 'Klinik Kurmak, büyütmek ve yönetmek için',
     description: 'Hedefimiz, kliniğin ileride CRM, AI destekli iletişim ve otomasyon sistemlerine hazır hale gelmesini sağlamaktır.',
-    image: danismanlik1,
+    image: getAssetSrc(danismanlik1),
     link: '/talep-formu',
     buttonText: 'Danışmanlık Al',
     badge: ''
@@ -29,7 +31,7 @@ const heroSlides = [
     title: 'AI HİZMETLERİ',
     subtitle: 'Akıllı Klinik Asistanınız',
     description: '7/24 Canlı Cevap Sistemi • WhatsApp & Ai Call Center Otomasyonları • CRM Entegrasyonu',
-    image: aiCallCenter1,
+    image: getAssetSrc(aiCallCenter1),
     link: '/talep-formu',
     buttonText: 'Ücretsiz Demo',
     badge: 'Ai Teknolojisi'
@@ -39,7 +41,7 @@ const heroSlides = [
     title: 'Sosyal Medya Yönetimi',
     subtitle: 'Dijital Varlıklarınızı Güçlendirin',
     description: 'İçerik üretimi, Web sitesi tasarımı, profesyonel çekim, Google ADS ve bir çok dijital destek hizmetleri bir arada.',
-    image: socialMedia1,
+    image: getAssetSrc(socialMedia1),
     link: '/sosyal-medya',
     buttonText: 'Paketleri Gör',
     badge: 'Dijital Pazarlama'
@@ -49,7 +51,7 @@ const heroSlides = [
     title: 'İK',
     subtitle: 'İş Arayan ve İşverenlerin Buluşma Noktası',
     description: 'Estetisyen, klinik koordinatörü, banko elemanı ve diğer sağlık profesyonellerinin kolayca buluştuğu KVKK uyumlu platform. İşveren paneli, CV havuzu ve güvenli işe alım.',
-    image: danismanlik2,
+    image: getAssetSrc(danismanlik2),
     link: '/hepsi-ik',
     buttonText: 'Platformu Keşfet',
     badge: 'İnsan Kaynakları'
@@ -59,7 +61,7 @@ const heroSlides = [
     title: 'CRM Entegrasyonu',
     subtitle: 'Hasta Yönetiminde Yeni Dönem',
     description: 'Hasta kartları, randevu yönetimi, depo stok senkronizasyonu, before & after fotoğrafları, hatırlatma sistemi ve ciro takibi. Yakında sizlerle!',
-    image: crm1,
+    image: getAssetSrc(crm1),
     link: '/ai-hizmetleri#crm',
     buttonText: 'Bilgi Al',
     badge: 'Çok Yakında'
@@ -213,7 +215,7 @@ function Home() {
               <p className="hero-subtitle">{slide.subtitle}</p>
               <p className="hero-description">{slide.description}</p>
               <div className="hero-actions">
-                <Link to={slide.link} className="btn-primary">{slide.buttonText}</Link>
+                <Link href={slide.link} className="btn-primary">{slide.buttonText}</Link>
                 <a href="tel:+905376023088" className="btn-outline">İletişime Geç</a>
               </div>
             </div>
@@ -251,7 +253,7 @@ function Home() {
           <div className="services-grid">
             {services.map((service, index) => (
               <Link
-                to={service.link}
+                href={service.link}
                 key={service.id}
                 className={`service-card scroll-animate fade-up delay-${Math.min(index + 1, 5)}00`}
                 style={{ '--delay': `${index * 0.1}s`, '--accent': service.color }}
@@ -308,13 +310,13 @@ function Home() {
               </li>
             </ul>
             <div className="feature-actions">
-              <Link to="/ai-hizmetleri" className="btn-primary">Demo İste</Link>
-              <Link to="/ai-hizmetleri" className="btn-text">Detaylı Bilgi →</Link>
+              <Link href="/ai-hizmetleri" className="btn-primary">Demo İste</Link>
+              <Link href="/ai-hizmetleri" className="btn-text">Detaylı Bilgi →</Link>
             </div>
           </div>
           <div className="feature-visual scroll-animate fade-right">
             <div className="iphone-chat-wrapper">
-              <img src={iphoneImage} alt="iPhone AI Assistant" className="iphone-frame" />
+              <img src={getAssetSrc(iphoneImage)} alt="iPhone AI Assistant" className="iphone-frame" />
               <div className="iphone-chat-overlay">
                 <div className="chat-header-mini">
                   <div className="chat-avatar-mini">
@@ -377,7 +379,7 @@ function Home() {
       <section className="hr-section">
         <div className="container hr-grid">
           <div className="hr-image scroll-animate fade-left">
-            <img src={danismanlik2} alt="Sağlık profesyonelleri" />
+            <img src={getAssetSrc(danismanlik2)} alt="Sağlık profesyonelleri" />
           </div>
           <div className="hr-content scroll-animate fade-right">
             <span className="section-tag">İK</span>
@@ -412,8 +414,8 @@ function Home() {
               </div>
             </div>
             <div className="hr-actions">
-              <Link to="/hepsi-ik" className="btn-primary-dark">Eleman Arıyorum</Link>
-              <Link to="/hepsi-ik" className="btn-outline-dark">İş Arıyorum</Link>
+              <Link href="/hepsi-ik" className="btn-primary-dark">Eleman Arıyorum</Link>
+              <Link href="/hepsi-ik" className="btn-outline-dark">İş Arıyorum</Link>
             </div>
           </div>
         </div>
@@ -494,19 +496,19 @@ function Home() {
           <div className="digital-gallery scroll-animate fade-up">
             <div className="gallery-grid">
               <div className="gallery-item">
-                <img src={socialMedia2} alt="Profesyonel Çekim" />
+                <img src={getAssetSrc(socialMedia2)} alt="Profesyonel Çekim" />
                 <div className="gallery-overlay">
                   <h4>Profesyonel Çekim</h4>
                 </div>
               </div>
               <div className="gallery-item">
-                <img src={socialMedia3} alt="Grafik Tasarım" />
+                <img src={getAssetSrc(socialMedia3)} alt="Grafik Tasarım" />
                 <div className="gallery-overlay">
                   <h4>Grafik Tasarım</h4>
                 </div>
               </div>
               <div className="gallery-item">
-                <img src={socialMedia4} alt="Video Prodüksiyon" />
+                <img src={getAssetSrc(socialMedia4)} alt="Video Prodüksiyon" />
                 <div className="gallery-overlay">
                   <h4>Video Prodüksiyon</h4>
                 </div>
@@ -517,7 +519,7 @@ function Home() {
           <div className="digital-cta scroll-animate fade-up">
             <h3>Kliniğinizin Dijital Varlığını Güçlendirin</h3>
             <p>Sosyal medya paketlerimizi inceleyin ve size en uygun çözümü bulun</p>
-            <Link to="/sosyal-medya" className="btn-primary-large">Paketleri İncele</Link>
+            <Link href="/sosyal-medya" className="btn-primary-large">Paketleri İncele</Link>
           </div>
         </div>
       </section>
@@ -531,7 +533,7 @@ function Home() {
             çözümleri sunmak için hazır.
           </p>
           <div className="main-cta-actions">
-            <Link to="/talep-formu" className="btn-primary-large">Ücretsiz Danışmanlık</Link>
+            <Link href="/talep-formu" className="btn-primary-large">Ücretsiz Danışmanlık</Link>
             <a href="tel:+905376023088" className="btn-outline-large">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>

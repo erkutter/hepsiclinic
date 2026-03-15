@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 
 function TermsOfService() {
   return (
@@ -174,7 +174,7 @@ function TermsOfService() {
               <p>
                 Kullanım şartlarımız hakkında daha fazla bilgi almak için bizimle iletişime geçin.
               </p>
-              <Link to="/danismanlik" className="btn-primary">İletişime Geç</Link>
+              <Link href="/danismanlik" className="btn-primary">İletişime Geç</Link>
             </div>
           </div>
         </div>
