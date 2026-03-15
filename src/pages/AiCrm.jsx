@@ -551,20 +551,6 @@ function AiCrm() {
             </div>
             <div className="technical-visual-enhanced">
               <img src={crm4} alt="Technical Integration" />
-              <div className="tech-stats-overlay">
-                <div className="tech-stat">
-                  <span className="tech-stat-value">99.9%</span>
-                  <span className="tech-stat-label">Uptime Garantisi</span>
-                </div>
-                <div className="tech-stat">
-                  <span className="tech-stat-value">&lt;100ms</span>
-                  <span className="tech-stat-label">API Yanıt Süresi</span>
-                </div>
-                <div className="tech-stat">
-                  <span className="tech-stat-value">256-bit</span>
-                  <span className="tech-stat-label">SSL Şifreleme</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>

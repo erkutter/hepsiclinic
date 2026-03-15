@@ -531,7 +531,7 @@ main { flex: 1; }
 .social-links svg { width: 20px; height: 20px; }
 .footer-links { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
 .footer-column h4 { font-size: 1rem; font-weight: 700; margin-bottom: 1.25rem; color: var(--white); }
-.footer-column a, .footer-column span { display: block; font-size: 0.9rem; color: rgba(255,255,255,0.7); margin-bottom: 0.75rem; transition: var(--transition); }
+.footer-column a, .footer-column span { display: block; font-size: 0.9rem; color: rgba(255,255,255,0.7); margin-bottom: 0.75rem; transition: var(--transition); white-space: nowrap; }
 .footer-column a:hover { color: var(--white); }
 .footer-bottom { display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 0; flex-wrap: wrap; gap: 1rem; }
 .footer-bottom p { font-size: 0.9rem; color: rgba(255,255,255,0.6); }

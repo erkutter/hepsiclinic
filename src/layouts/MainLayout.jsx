@@ -20,7 +20,8 @@ function MainLayout() {
 
   useEffect(() => {
     setIsMobileMenuOpen(false)
-  }, [location])
+    window.scrollTo(0, 0)
+  }, [location.pathname])
 
   const handleNewsletterSubmit = (e) => {
     e.preventDefault()
@@ -135,7 +136,7 @@ function MainLayout() {
               <div className="footer-column">
                 <h4>İletişim</h4>
                 <a href="tel:+905376023088">Telefon: +90 537 602 30 88</a>
-                <a href="mailto:info@hepsiclinic.com">info@hepsiclinic.com</a>
+                <a href="mailto:info@hepsiclinic.com">Mail: info@hepsiclinic.com</a>
                 <span>İstanbul, Türkiye</span>
               </div>
             </div>

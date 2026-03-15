@@ -31,11 +31,6 @@ function SecondHand() {
             </svg>
             <span>Yapım Aşamasında</span>
           </div>
-          <h1>2. El Cihazlar</h1>
-          <p className="hero-subtitle">
-            Uygun fiyatlı aradığınız cihazlar için al & sat yapabileceğiniz platform çok yakında hizmetinizde.
-            Garantili, test edilmiş ve kaliteli ikinci el medikal cihazlar.
-          </p>
           <div className="hero-features-list">
             <div className="hero-feature-item">
               <svg viewBox="0 0 24 24" fill="currentColor">
