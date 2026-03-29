@@ -144,7 +144,7 @@ function MainLayout({ children }) {
                 <h4>İletişim</h4>
                 <a href="tel:+905376023088">Telefon: +90 537 602 30 88</a>
                 <a href="mailto:info@hepsiclinic.com">Mail: info@hepsiclinic.com</a>
-                <span>İstanbul, Türkiye</span>
+                <span>Levent Mah. Karanfil Sk. Villa 13, Beşiktaş / İSTANBUL</span>
               </div>
             </div>
           </div>

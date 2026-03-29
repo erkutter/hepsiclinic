@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { getAssetSrc } from '../lib/getAssetSrc'
+import WhatsAppPhone from '../components/WhatsAppPhone'
 
 // Import images
 import danismanlik1 from '../assets/danismanlik/IMG_0377.jpeg'
@@ -13,7 +14,7 @@ import socialMedia1 from '../assets/socialMedia/IMG_0474.jpeg'
 import socialMedia2 from '../assets/socialMedia/IMG_0476.jpeg'
 import socialMedia3 from '../assets/socialMedia/IMG_0480.jpeg'
 import socialMedia4 from '../assets/socialMedia/IMG_0482.jpeg'
-import iphoneImage from '../assets/apple-iphone-17-pro-max-2025-medium.png'
+
 
 const heroSlides = [
   {
@@ -134,8 +135,8 @@ const services = [
 
 const stats = [
   { value: '50+', label: 'Klinik Partneri' },
-  { value: '10+', label: 'Uzman Danışman' },
-  { value: '100+', label: 'Yerleştirilen Personel' },
+  { value: '30+', label: 'Uzman Danışman' },
+  { value: '500+', label: 'Yerleştirilen Personel' },
   { value: '95%', label: 'Müşteri Memnuniyeti' }
 ]
 
@@ -315,33 +316,7 @@ function Home() {
             </div>
           </div>
           <div className="feature-visual scroll-animate fade-right">
-            <div className="iphone-chat-wrapper">
-              <img src={getAssetSrc(iphoneImage)} alt="iPhone AI Assistant" className="iphone-frame" />
-              <div className="iphone-chat-overlay">
-                <div className="chat-header-mini">
-                  <div className="chat-avatar-mini">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
-                    </svg>
-                  </div>
-                  <div className="chat-info-mini">
-                    <span className="chat-name-mini">HepsiClinic AI</span>
-                    <span className="chat-status-mini">Çevrimiçi</span>
-                  </div>
-                </div>
-                <div className="chat-messages-mini">
-                  <div className="chat-msg bot">Merhaba! 👋 Size nasıl yardımcı olabilirim?</div>
-                  <div className="chat-msg user">Botox fiyatları hakkında bilgi alabilir miyim?</div>
-                  <div className="chat-msg bot">Tabii! 3.500₺'den başlıyor. Randevu ister misiniz?</div>
-                  <div className="chat-msg user">Evet, bu hafta müsait misiniz?</div>
-                  <div className="chat-msg bot">📅 Salı 14:00, Çarşamba 10:00, Cuma 11:00 müsait.</div>
-                </div>
-                <div className="chat-input-mini">
-                  <span>Mesaj yazın...</span>
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-                </div>
-              </div>
-            </div>
+            <WhatsAppPhone />
             <div className="dashboard-preview">
               <h4>Canlı Dashboard</h4>
               <div className="stat-row">

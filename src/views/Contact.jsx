@@ -37,9 +37,9 @@ const contactInfo = [
       </svg>
     ),
     title: 'Adres',
-    value: 'İstanbul, Türkiye',
-    link: 'https://maps.google.com',
-    description: 'Levent, Beşiktaş'
+    value: 'Levent Mah. Karanfil Sk. Villa 13',
+    link: 'https://maps.google.com/?q=Levent+Mah+Karanfil+Sk+Villa+13+Beşiktaş+İstanbul',
+    description: 'Beşiktaş / İSTANBUL'
   },
   {
     icon: (
@@ -378,11 +378,11 @@ function Contact() {
             <div className="map-overlay-card">
               <h3>Ofisimizi Ziyaret Edin</h3>
               <p>
-                Levent, Beşiktaş<br />
-                İstanbul, Türkiye
+                Levent Mah. Karanfil Sk. Villa 13<br />
+                Beşiktaş / İSTANBUL
               </p>
-              <a 
-                href="https://maps.google.com/?q=Levent+Beşiktaş+İstanbul" 
+              <a
+                href="https://maps.google.com/?q=Levent+Mah+Karanfil+Sk+Villa+13+Beşiktaş+İstanbul"
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="btn-directions"

@@ -141,7 +141,7 @@ function Privacy() {
             <ul>
               <li><strong>E-posta:</strong> info@hepsiclinic.com</li>
               <li><strong>Telefon:</strong> +90 537 602 30 88</li>
-              <li><strong>Adres:</strong> İstanbul, Türkiye</li>
+              <li><strong>Adres:</strong> Levent Mah. Karanfil Sk. Villa 13 Beşiktaş / İSTANBUL</li>
             </ul>
 
             <div className="legal-contact">

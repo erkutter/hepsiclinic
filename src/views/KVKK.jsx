@@ -25,7 +25,7 @@ function KVKK() {
             </p>
             <p>
               <strong>Şirket Unvanı:</strong> HepsiClinic<br />
-              <strong>Adres:</strong> İstanbul, Türkiye<br />
+              <strong>Adres:</strong> Levent Mah. Karanfil Sk. Villa 13 Beşiktaş / İSTANBUL<br />
               <strong>E-posta:</strong> info@hepsiclinic.com<br />
               <strong>Telefon:</strong> +90 537 602 30 88
             </p>
@@ -113,7 +113,7 @@ function KVKK() {
             </p>
             <ul>
               <li><strong>E-posta:</strong> info@hepsiclinic.com</li>
-              <li><strong>Posta:</strong> İstanbul, Türkiye</li>
+              <li><strong>Posta:</strong> Levent Mah. Karanfil Sk. Villa 13 Beşiktaş / İSTANBUL</li>
               <li><strong>Telefon:</strong> +90 537 602 30 88</li>
             </ul>
             <p>
