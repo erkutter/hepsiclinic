@@ -2061,6 +2061,30 @@ main { flex: 1; }
   }
 }
 
+.form-message {
+  padding: 0.875rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.form-success {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
+}
+
+.form-error {
+  background: #fbe9e7;
+  color: #c62828;
+  border: 1px solid #ef9a9a;
+}
+
+.btn-submit-membership:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
 /* ===== REQUEST FORM PAGE ===== */
 .request-form-hero {
   min-height: 100vh;
@@ -2286,6 +2310,12 @@ main { flex: 1; }
 .btn-submit-request:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
+}
+
+.btn-submit-request:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
 }
 
 .form-success {

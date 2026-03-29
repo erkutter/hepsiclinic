@@ -480,7 +480,7 @@ function AiCrm() {
                     <ul className="tech-features">
                       <li>Gerçek zamanlı senkronizasyon</li>
                       <li>Otomatik veri yedekleme</li>
-                      <li>Çakışma çözümleme</li>
+                      <li>Sadakat Programı</li>
                     </ul>
                   </div>
                 </div>

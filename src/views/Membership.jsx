@@ -10,12 +10,38 @@ function Membership() {
     company: '',
     acceptKVKK: false
   })
+  const [status, setStatus] = useState('idle') // idle | loading | success | error
+  const [errorMsg, setErrorMsg] = useState('')
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // Form submission will be implemented later
-    console.log('Form submitted:', formData)
-    alert('Form gönderildi! Yakında sizinle iletişime geçeceğiz.')
+    setStatus('loading')
+    setErrorMsg('')
+
+    try {
+      const res = await fetch('/api/membership/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+        }),
+      })
+
+      const data = await res.json()
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Bir hata oluştu.')
+      }
+
+      setStatus('success')
+      setFormData({ name: '', email: '', phone: '', company: '', acceptKVKK: false })
+    } catch (err) {
+      setStatus('error')
+      setErrorMsg(err.message || 'Bir hata oluştu. Lütfen tekrar deneyin.')
+    }
   }
 
   const handleChange = (e) => {
@@ -181,8 +207,24 @@ function Membership() {
                     </label>
                   </div>
 
-                  <button type="submit" className="btn-submit-membership">
-                    Üye Ol
+                  {status === 'success' && (
+                    <div className="form-message form-success">
+                      Başvurunuz başarıyla gönderildi! En kısa sürede sizinle iletişime geçeceğiz.
+                    </div>
+                  )}
+
+                  {status === 'error' && (
+                    <div className="form-message form-error">
+                      {errorMsg}
+                    </div>
+                  )}
+
+                  <button
+                    type="submit"
+                    className="btn-submit-membership"
+                    disabled={status === 'loading'}
+                  >
+                    {status === 'loading' ? 'Gönderiliyor...' : 'Üye Ol'}
                   </button>
                 </form>
 

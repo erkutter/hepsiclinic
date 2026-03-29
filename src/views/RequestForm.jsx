@@ -13,7 +13,8 @@ function RequestForm() {
     acceptKVKK: false
   })
 
-  const [submitted, setSubmitted] = useState(false)
+  const [status, setStatus] = useState('idle') // idle | loading | success | error
+  const [errorMsg, setErrorMsg] = useState('')
 
   const services = [
     'Danışmanlık Hizmeti',
@@ -24,24 +25,37 @@ function RequestForm() {
     'Diğer'
   ]
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // Form submission will be implemented later
-    console.log('Form submitted:', formData)
-    setSubmitted(true)
+    setStatus('loading')
+    setErrorMsg('')
 
-    setTimeout(() => {
-      setSubmitted(false)
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        company: '',
-        service: '',
-        message: '',
-        acceptKVKK: false
+    try {
+      const res = await fetch('/api/request/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          service: formData.service,
+          message: formData.message,
+        }),
       })
-    }, 3000)
+
+      const data = await res.json()
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Bir hata oluştu.')
+      }
+
+      setStatus('success')
+      setFormData({ name: '', email: '', phone: '', company: '', service: '', message: '', acceptKVKK: false })
+    } catch (err) {
+      setStatus('error')
+      setErrorMsg(err.message || 'Bir hata oluştu. Lütfen tekrar deneyin.')
+    }
   }
 
   const handleChange = (e) => {
@@ -126,7 +140,7 @@ function RequestForm() {
             {/* Form */}
             <div className="request-form-container">
               <div className="request-form-card">
-                {submitted ? (
+                {status === 'success' ? (
                   <div className="form-success">
                     <div className="success-icon">
                       <svg viewBox="0 0 24 24" fill="currentColor">
@@ -242,8 +256,18 @@ function RequestForm() {
                         </label>
                       </div>
 
-                      <button type="submit" className="btn-submit-request">
-                        Talep Gönder
+                      {status === 'error' && (
+                        <div className="form-message form-error">
+                          {errorMsg}
+                        </div>
+                      )}
+
+                      <button
+                        type="submit"
+                        className="btn-submit-request"
+                        disabled={status === 'loading'}
+                      >
+                        {status === 'loading' ? 'Gönderiliyor...' : 'Talep Gönder'}
                       </button>
                     </form>
                   </>
